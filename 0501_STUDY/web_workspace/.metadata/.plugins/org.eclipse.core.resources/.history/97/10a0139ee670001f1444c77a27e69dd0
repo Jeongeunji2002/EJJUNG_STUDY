@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>다음 지도 API</title>
+<style>
+    #map {
+        width: 80%;
+        height: 100vh;
+        float: right;
+    }
+    #search {
+        width: 20%;
+        height: 100vh;
+        float: left;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    .search-box {
+        margin-bottom: 10px;
+    }
+    .search-box input {
+        width: calc(100% - 22px);
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    .search-box button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .search-box button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+    <div id="search">
+        <div class="search-box">
+            <input id="start" type="text" placeholder="출발지">
+        </div>
+        <div class="search-box">
+            <input id="end" type="text" placeholder="도착지">
+        </div>
+    </div>
+    <div id="map"></div>
+
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c97889f438939687969d7a54a445021f&libraries=services"></script>
+    <script>
+        var mapContainer = document.getElementById('map'), 
+            mapOption = {
+                center: new kakao.maps.LatLng(37.60630, 127.02405),
+                level: 8,
+                mapTypeId: kakao.maps.MapTypeId.ROADMAP
+            };
+        var map = new kakao.maps.Map(mapContainer, mapOption);
+        var markers = [];
+        var polyline;
+        var searchMode = 'start'; // 'start' or 'end'
+        var startMarker = null;
+        var endMarker = null;
+
+        kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+            if (searchMode === 'start') {
+                setStartMarker(mouseEvent.latLng);
+                searchMode = 'end';
+            } else if (searchMode === 'end') {
+                setEndMarker(mouseEvent.latLng);
+                searchMode = 'start'; // Reset to start mode for the next search
+                drawRoute(); // Draw the route after setting both markers
+            }
+        });
+
+        function setStartMarker(position) {
+            if (startMarker) {
+                startMarker.setMap(null);
+            }
+            startMarker = new kakao.maps.Marker({
+                position: position,
+                map: map,
+                title: '출발지'
+            });
+            markers.push(startMarker);
+            document.getElementById('start').value = '출발지 위치 설정됨';
+        }
+
+        function setEndMarker(position) {
+            if (endMarker) {
+                endMarker.setMap(null);
+            }
+            endMarker = new kakao.maps.Marker({
+                position: position,
+                map: map,
+                title: '도착지'
+            });
+            markers.push(endMarker);
+            document.getElementById('end').value = '도착지 위치 설정됨';
+        }
+
+        function drawRoute() {
+            if (startMarker && endMarker) {
+                var path = [startMarker.getPosition(), endMarker.getPosition()];
+                if (polyline) {
+                    polyline.setMap(null);
+                }
+                polyline = new kakao.maps.Polyline({
+                    path: path,
+                    strokeWeight: 3,
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 0.7,
+                    strokeStyle: 'solid'
+                });
+                polyline.setMap(map);
+            }
+        }
+
+        var ps = new kakao.maps.services.Places();
+
+        function searchPlace(type) {
+            var keyword = document.getElementById(type).value;
+            ps.keywordSearch(keyword, function(data, status, pagination) {
+                if (status === kakao.maps.services.Status.OK) {
+                    var place = data[0];
+                    var position = new kakao.maps.LatLng(place.y, place.x);
+                    if (type === 'start') {
+                        setStartMarker(position);
+                        searchMode = 'end'; // Set the next search mode to 'end'
+                    } else if (type === 'end') {
+                        setEndMarker(position);
+                        drawRoute(); // Draw the route after setting both markers
+                        searchMode = 'start'; // Reset to start mode for the next search
+                    }
+                } else {
+                    alert('검색 결과가 없습니다.');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

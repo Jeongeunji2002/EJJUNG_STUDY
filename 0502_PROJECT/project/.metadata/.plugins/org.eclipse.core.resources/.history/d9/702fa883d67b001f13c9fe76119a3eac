@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE configuration PUBLIC
+"-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 마이바티스는 sql 구문에 사용되는 값이 null 이면 에러 발생함.
+		null 을 사용할 수 있게 하려면 아래의 설정을 추가함
+	-->
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+		<setting name="cacheEnabled" value="false"/>
+	</settings>
+
+	
+	<!-- 존재하지 않은 클래스와 매퍼파일을 먼저 등록 설정하면 에러 발생함 : 톰캣 구동 안됨 -->
+	<typeAliases>
+		<!-- *-mapper.xml 에서 dto 클래스명을 간단하게 사용하기 위해서 클래스 -->
+		<typeAlias type="com.synergysoft.bonvoyage.chatting.model.dto.Chatting" alias="Chatting" />
+		<typeAlias type="com.synergysoft.bonvoyage.comment.model.dto.Comment" alias="Comment" />
+		<typeAlias type="com.synergysoft.bonvoyage.guide.model.dto.Guide" alias="Guide" />
+		<typeAlias type="com.synergysoft.bonvoyage.map.model.dto.BMap" alias="BMap" />
+		<typeAlias type="com.synergysoft.bonvoyage.member.model.dto.Member" alias="Member" />
+		<typeAlias type="com.synergysoft.bonvoyage.notice.model.dto.Notice" alias="Notice" />
+		<typeAlias type="com.synergysoft.bonvoyage.qna.model.dto.Qna" alias="Qna" />
+		<typeAlias type="com.synergysoft.bonvoyage.report.model.dto.Report" alias="Report" />
+		<typeAlias type="com.synergysoft.bonvoyage.route.model.dto.Route" alias="Route" />
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="mappers/chatting-mapper.xml" />
+		<mapper resource="mappers/comment-mapper.xml" />
+		<mapper resource="mappers/guide-mapper.xml" />
+		<mapper resource="mappers/bmap-mapper.xml" />
+		<mapper resource="mappers/member-mapper.xml" />
+		<mapper resource="mappers/notice-mapper.xml" />
+		<mapper resource="mappers/qna-mapper.xml" />
+		<mapper resource="mappers/report-mapper.xml" />
+		<mapper resource="mappers/route-mapper.xml" />
+	</mappers>
+</configuration>

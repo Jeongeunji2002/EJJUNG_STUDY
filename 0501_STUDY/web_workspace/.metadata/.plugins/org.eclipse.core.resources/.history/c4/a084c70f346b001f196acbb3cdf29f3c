@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>sample6</title>
+</head>
+<body>
+	<h1>자바스크립트에서 배열다루기</h1>
+	<p>
+		<script type="text/javascript">
+			var arr1 = new Array(5);
+			var arr2 = new Array('red', 'yellow', 'green');
+			var arr3 = new Array(); //index 가 없음, 자료구조 스택(stack) 방식의 공간을 할당함 : FILO 구조
+			//FILO (First Input Last Output), push(저장), pop(제거) 동작
+
+			//arr1 이 참조하는 배열 공간에 값 기록
+
+			for (var i = 0; i < array.length; i++) {
+				arr[i] = (i + 1) * 100; //100, 200, 300, 400, 500
+				arr3.push(arr1[i]); //100,200,300,400,500
+			}
+
+			document.write('arr3.length : ' + arr3.langht + '<br>');
+
+			//arr2가 참조하는 배열공간의 기록된 값 확인
+			for (var i = 0; i < array.length; i++) {
+				document.write(arr2[i] + '<br>');
+			}
+			//arr3가 참조하는 배열공간의 기록된 값 출력 확인
+			document.write('arr3가 참조하는 배열공간의 기록값 확인<br>');
+			//push(기록할값)로 기록한 경우에는 pop()으로 추출함
+			//스택구조의 배열공간의 값이 하나씩 줄어들게됨
+			var count = arr3.length;
+			for (var c = 0; i < count; c++) {
+				document.write(arr3.pop())
+			}
+		</script>
+		</p>
+	<hr>
+	<ul>
+		<li>java</li>
+		<li>oracle</li>
+		<li>web front</li>
+		<li>web server</li>
+		<li>framework</li>
+
+	</ul>
+	<p>
+	<script type="text/javascript">
+	var arr1 = new Array('apple', 'banana', 'oracle', 'grape');
+	var arr2 = [100, 200, 300, 400, 500];
+	//태그 목록을 배열로 받는 경우
+	
+	varliTags = document.getElementsByTagName('li');
+	
+	document.write('arr1의 값들<br>');
+	for (var i = 0; i < array.length; i++) {
+		
+	}
+	document.write('arr2의 값들<br>');
+	document.write('arr3의 값들<br>');
+	</script>
+	</p>
+</body>
+</html>

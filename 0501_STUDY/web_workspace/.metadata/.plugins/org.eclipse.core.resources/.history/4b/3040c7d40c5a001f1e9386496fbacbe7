@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<header>
+	<h1>
+	테이블 태그 이용 구역 나누기 연습
+	</h1>
+</header>
+<hr>
+<table border=1 width="30%" height="30%" cellspacing="0" cellpadding="10" align="center">
+        <tr align="center"> <!-- table row : 한 행을 표시하는 태그 -->
+            <td>번호</td>
+            <td>이름</td>
+            <td>생년월일</td>
+            <td>성별</td>
+        </tr>
+        <tr bgcolor="darkred">
+            <td>1</td>
+            <td background ="/testh/">정은지</td>
+            <td>2002. 03. 03</td>
+            <td>여성</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>김예은</td>
+            <td>2002. 10. 22</td>
+            <td>여성</td>
+        </tr>
+        <tr bgcolor="yellow">
+            <td>3</td>
+            <td>오정민</td>
+            <td>2003. 08. 12</td>
+            <td>남성</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>최은진</td>
+            <td>2004. 01. 05</td>
+            <td>여성</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>장지웅</td>
+            <td>2004. 01. 08</td>
+            <td>남성</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>박수호</td>
+            <td>2005. 02. 24</td>
+            <td>남성</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>박준수</td>
+            <td>2005. 03. 28</td>
+            <td>남성</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>손대곤</td>
+            <td>2006. 11. 16</td>
+            <td>남성</td>
+        </tr>
+    </table>
+</body>
+</html>

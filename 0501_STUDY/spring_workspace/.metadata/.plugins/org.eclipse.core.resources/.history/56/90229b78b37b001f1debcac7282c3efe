@@ -1,0 +1,43 @@
+package org.myweb.first.board.model.dto;
+
+import java.sql.Date;
+
+public class Board implements java.io.Serializable {
+	private static final long serialVersionUID = -6086290596677675589L;
+	private int board_num;// BOARD_NUM NUMBER
+	private String boardWriter;// BOARD_WRITER VARCHAR2(50 BYTE)
+	private String boardTitle;// BOARD_TITLE VARCHAR2(50 BYTE)
+	private String boardContent;// BOARD_CONTENT VARCHAR2(2000 BYTE)
+	private String boardOriginalFilename;// BOARD_ORIGINAL_FILENAME VARCHAR2(100 BYTE)
+	private String boardRenameFilename;// BOARD_RENAME_FILENAME VARCHAR2(100 BYTE)
+	private int boardRef;// BOARD_REF NUMBER
+	private int boardReplyRef;// BOARD_REPLY_REF NUMBER
+	private int boardLev;// BOARD_LEV NUMBER
+	private int boardReplySeq;// BOARD_REPLY_SEQ NUMBER
+	private int boardReadcount;// BOARD_READCOUNT NUMBER
+	private java.sql.Date boardDate;// BOARD_DATE DATE
+	
+	public Board() {
+		super();
+	}
+
+	public Board(int board_num, String boardWriter, String boardTitle, String boardContent,
+			String boardOriginalFilename, String renameFilename, int boardRef, int boardReplyRef, int boardLev,
+			int boardReplySeq, int boardReadcount, Date boardDate) {
+		super();
+		this.board_num = board_num;
+		this.boardWriter = boardWriter;
+		this.boardTitle = boardTitle;
+		this.boardContent = boardContent;
+		this.boardOriginalFilename = boardOriginalFilename;
+		RenameFilename = renameFilename;
+		this.boardRef = boardRef;
+		this.boardReplyRef = boardReplyRef;
+		this.boardLev = boardLev;
+		BoardReplySeq = boardReplySeq;
+		this.boardReadcount = boardReadcount;
+		this.boardDate = boardDate;
+	}
+	
+	
+}

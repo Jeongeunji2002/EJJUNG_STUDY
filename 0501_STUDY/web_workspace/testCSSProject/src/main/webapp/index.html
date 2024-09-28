@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>testc</title>
+<!-- 연결 스타일 시트 : 따로 작성된 css파일을 연결해서, 해당 무서 안의 태그들의 css를 적용할 떄 사용함
+	 link 태그(단일태그임) 사용함
+-->
+<!-- <link href="/testc/resources/css/sample.css" rel="stylesheet" type="text/css"> -->
+<style type="text/css">
+/* 전역 스타일시트 : head 태그 안에 style 태그를 추가하고 문서에 사용된 태그 전체에 대해 css 적용할 때 사용
+   태그 선택이 중요함 => css selector 사용함
+   태그선텍자 {css-property : 값; 속성 : 값; 속성 : 숫자단위;}
+*/
+hr { /*태그명으로 선택 : 문서 안에 사용된 hr 태그 모두 선택*/
+	clear: both; /*float 적용을 해제함*/
+}
+
+li.menuitem { /*태그명.클래스명 : 클래스명이 부여된 태그명을 모두 선택함*/
+	display: black;
+	background-color: orang;
+	width: 140px;
+	height: 25px;
+	marligin_right: 5px;
+	box-shadow: 2px 2px 4px, black;
+	text-align: center;
+	float: left;
+}
+
+header {
+	margin-bottom: 100px;
+}
+
+section#box { /*태그명#아이디명 또는 #아이디명 부여된 태그를 선택*/
+	/*css property에서 파일을 값으로 적용할 때는 url("상대|절대경로/폴더명/파일명.확장자") 함수 사용함*/
+	background-image: url("testc/resources/images/back.jpg");
+	background-repeat: no-repeat;
+	/*repeat(기본),no-repeat, x-repeat, y-repeat */
+	width: 500px; height : 300px;
+	/*border-style:solid;
+border-color:black;
+border-width:3px;*/
+	/*border: 3px solid black;*/
+	border-left: solid gray 6px;
+	border-right: dotted green 8px;
+	border-top: dashed black 6px;
+	border-bottom: solid black 8px; color : magenta;
+	font-weight: bold;
+	text-align: center;
+	white-space: normal;
+	letter-spacing: 5px;
+	text-transform: capitalize;
+	color: magenta;
+	height: 300px;
+}
+
+header nav ul li a { /*태그명 사이의 공백은 ''태그 안에 있는'' 의 의미임,
+태그명 공백 태그명 : 태그 안에 있는 태그(자식요소, child element 라고 함)선택*/
+	text-decoration: none; /*밑줄(underline)을 없앰*/
+	text-shadow: 1px 1px 2px white;
+	color: navy;
+	font-weight: bold;
+	display: block;
+	width: 140px;
+	height: 25px;
+}
+
+/*슈도(sudo) 클래스 사용 : 선태갛ㄴ 태그 동작 이벤트를 부여할 때 사용함
+	예 : a 태그에 마우스 커서를 갖다 대었을 때 css 변화를 주고자 한다면*/
+header nav ul li a:hover {
+	background: navy;
+	color: white;
+	text-shadow: 1px 1px 2px orange;
+}
+
+/*a 태그 영역을 마우스 버튼 눌렀을 떄 => :active 슈도 클래스 사용*/
+header nav ul li a:active {
+	color:red;
+} 
+</style>
+</head>
+<body>
+	<header>
+		<h1>Test CSS Project</h1>
+
+		<nav>
+			<ul>
+				<li class="menuitem"><a href="/testc/views/test/inlineStyle.html">인라인스타일연습</a></li>
+				<li class="menuitem"><a href="/testc/views/test/selector.html">CSS3 연습</a></li>
+				<li class="menuitem"><a href="/testc/views/test/transform">transform, transition</a></li>
+				<li class="menuitem"><a href="#">menu</a></li>
+				<li class="menuitem"><a href="#">menu</a></li>
+				<li class="menuitem"><a href="#">menu</a></li>
+				<li class="menuitem"><a href="#">menu</a></li>
+			</ul>
+		</nav>
+	</header>
+	<hr>
+	<section>
+		<form action="" method="post">
+			<fieldset>
+				<legend>로그인하세요</legend>
+				<label for="uid">아이디</label> <input type="text" name="userid"
+					id="uid"><br> <label for="upwd">암호</label> <input
+					type="password" name="usepwd" id=upwd><br> <input
+					type="submit" , value="로그인">
+			</fieldset>
+		</form>
+		<hr>
+		<footer> copyright@test.css.kr </footer>
+	</section>
+	<section>css select(선택자) 연습</section>
+</body>
+</html>

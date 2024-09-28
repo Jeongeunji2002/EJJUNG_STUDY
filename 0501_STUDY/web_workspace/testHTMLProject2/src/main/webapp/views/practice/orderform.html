@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>orderform</title>
+</head>
+<body>
+    <div id=order_div>
+    	<form action="testh2/test/result.html" method="get">
+    		<table width="100%" cellspacing="0" cellpadding="0">
+    			<tr>
+    				<td>
+    					<label>고객명 : <input name="username" required></label><p>
+    				</td>
+    			</tr>
+    			
+    			<tr>
+    				<td>
+    					<label>전화번호 : <input type="tel" name="phone"></label><p>
+    				</td>
+    			</tr>
+    			
+    			<tr>
+    				<td>
+    					<label>E-mail : <input type="email" name ="email"></label><p>
+    				</td>
+    			</tr>
+    			<tr>
+    				<td>
+    					<fieldset>
+    						<legend>
+    							피자 사이즈
+    						</legend>
+    					<input type="radio" name="pz" value="S" checked> Small &nbsp; <p>
+						<input type="radio" name="pz" value="M" checked> Medium &nbsp; <p>
+						<input type="radio" name="pz" value="L" checked> Large &nbsp; <p>
+    					</fieldset>
+    				</td>
+    			</tr>
+    			<tr>
+    				<td>
+    					<fieldset>
+    						<legend>
+    							토핑 선택
+    						</legend>
+    					<input type="checkbox" name="pzt" value="B"> 베이컨 &nbsp; <p>
+						<input type="checkbox" name="pzt" value="C"> 치즈 &nbsp; <p>
+						<input type="checkbox" name="pzt" value="A"> 양파 &nbsp; <p>
+						<input type="checkbox" name="pzt" value="t"> 버섯 &nbsp; <p>
+    					</fieldset>
+    				</td>
+    			</tr>
+    		</table>
+    		<table>
+    			<tr>
+    				<td>
+    					배송시요청사항 : <textarea name ="etc" rows="0" cols="30">
+    					</textarea>
+    				</td>
+    			</tr>
+    		</table>
+    		<input type = "submit"value ="가입하기"> &nbsp;
+    	</form>
+    </div>
+</body>
+</html>

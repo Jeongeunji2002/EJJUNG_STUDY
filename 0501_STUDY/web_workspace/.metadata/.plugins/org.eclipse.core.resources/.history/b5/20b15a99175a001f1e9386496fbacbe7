@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<video src="testh2/resources/multi/major.mp3"width="300" height = "300">
+</video>
+</body>
+</html>

@@ -1,0 +1,11 @@
+package member.model.service;
+
+import static common.JCBCTemplate.*;
+
+import member.model.dto.User;
+
+public class MemberService {
+	public User selectLogin(User user) {
+		
+	}
+}

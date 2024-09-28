@@ -1,0 +1,5 @@
+package make.generics;
+
+public class MyGenerics<T> {
+	//배열 처리용 클래스 : 타입이 정해지지 않은 배열 선언
+}

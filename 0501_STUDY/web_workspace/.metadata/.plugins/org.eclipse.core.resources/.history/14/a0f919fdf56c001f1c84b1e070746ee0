@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Right Click Confirmation</title>
+    <style>
+        /* 스타일링 (선택 사항) */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>오른쪽 클릭 확인 대화상자 예제</h1>
+    <p>이 영역에서 오른쪽 클릭을 해보세요.</p>
+
+    <script>
+        // 오른쪽 클릭 이벤트를 처리하는 함수
+        function handleRightClick(event) {
+            event.preventDefault(); // 기본 컨텍스트 메뉴를 방지합니다.
+            
+            // 확인 대화상자를 표시합니다.
+            var userResponse = confirm('이 작업을 진행하시겠습니까?');
+            
+            if (userResponse) {
+                alert('사용자가 "네"를 클릭했습니다.');
+            } else {
+                alert('사용자가 "아니요"를 클릭했습니다.');
+            }
+        }
+
+        // 문서 전체에서 오른쪽 클릭 감지
+        document.addEventListener('contextmenu', handleRightClick);
+    </script>
+</body>
+</html>

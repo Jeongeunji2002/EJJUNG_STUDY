@@ -1,0 +1,15 @@
+package org.myweb.first.board.model.dao;
+
+import org.myweb.first.board.model.service.ArrayList;
+import org.myweb.first.board.model.service.Board;
+import org.springframework.stereotype.Repository;
+
+@Repository("boadrDao")
+public class BoardDao {
+
+	public ArrayList<Board> selectTop3() {
+		List<Board> list = sqlSessionTemplate.selectList("boardMapper.selectTop3");
+		return (ArrayList<Board>)list;
+	}
+
+}

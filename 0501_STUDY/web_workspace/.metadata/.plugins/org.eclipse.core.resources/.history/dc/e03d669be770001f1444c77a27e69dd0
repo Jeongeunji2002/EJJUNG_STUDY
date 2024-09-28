@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>다음 지도 API</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+    #map {
+        width: 80%;
+        height: 100vh;
+        float: right;
+    }
+    #search {
+        width: 20%;
+        height: 100vh;
+        float: left;
+        padding: 10px;
+        box-sizing: border-box;
+        overflow-y: auto;
+    }
+    .search-box {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+    }
+    .search-box input {
+        width: calc(100% - 40px);
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    .search-box button {
+        width: 30px;
+        height: 30px;
+        margin-left: 10px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .search-box button:hover {
+        background-color: #0056b3;
+    }
+    #info {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: white;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+</style>
+</head>
+<body>
+    <div id="search">
+        <div class="search-box">
+            <input id="start" type="text" placeholder="출발지 검색">
+            <button onclick="searchPlace('start')">버</button>
+        </div>
+        <div class="search-box">
+            <input id="via" type="text" placeholder="경유지 검색">
+            <button onclick="addViaInput()">+</button>
+        </div>
+        <div id="via-list"></div>
+        <div class="search-box">
+            <input id="end" type="text" placeholder="도착지 검색">
+            <button onclick="searchPlace('end')">버</button>
+        </div>
+    </div>
+    <div id="map"></div>
+    <div id="info">
+        <p id="info-text">지도를 클릭하여 출발지와 도착지를 설정한 후, 경유지를 추가하세요.</p>
+    </div>
+
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c97889f438939687969d7a54a445021f&libraries=services"></script>
+    <script>
+        var mapContainer = document.getElementById('map'), 
+            mapOption = {
+                center: new kakao.maps.LatLng(37.60630, 127.02405),
+                level: 8,
+                mapTypeId: kakao.maps.MapTypeId.ROADMAP
+            };
+        var map = new kakao.maps.Map(mapContainer, mapOption);
+        var markers = [];
+        var polyline;
+        var positions = [];
+        var placeMode = 'start'; // 'start', 'end', or 'via'
+        var startMarker = null;
+        var endMarker = null;
+
+        kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+            if (placeMode === 'start' && !startMarker) {
+                setStartMarker(mouseEvent.latLng);
+                placeMode = 'end';
+            } else if (placeMode === 'end' && !endMarker) {
+                setEndMarker(mouseEvent.latLng);
+                placeMode = 'via'; // Allow adding via points
+                updateInfoText();
+            } else if (placeMode === 'via') {
+                addViaMarker(mouseEvent.latLng);
+            }
+            drawRoute(); // Draw or update the route whenever markers change
+        });
+
+        function setStartMarker(position) {
+            if (startMarker) {
+                startMarker.setMap(null);
+            }
+            startMarker = new kakao.maps.Marker({
+                position: position,
+                map: map,
+                title: '출발지'
+            });
+            markers.push(startMarker);
+            positions[0] = position;
+            updateInfoText();
+        }
+
+        function setEndMarker(position) {
+            if (endMarker) {
+                endMarker.setMap(null);
+            }
+            endMarker = new kakao.maps.Marker({
+                position: position,
+                map: map,
+                title: '도착지'
+            });
+            markers.push(endMarker);
+            positions[1] = position;
+            updateInfoText();
+        }
+
+        function addViaMarker(position) {
+            var marker = new kakao.maps.Marker({
+                position: position,
+                map: map,
+                title: '경유지'
+            });
+            markers.push(marker);
+            positions.push(position);
+            updateInfoText();
+        }
+
+        function updateInfoText() {
+            var infoText = "";
+            if (!startMarker) {
+                infoText = "출발지를 설정하세요.";
+            } else if (!endMarker) {
+                infoText = "도착지를 설정하세요.";
+            } else {
+                infoText = "경유지를 추가하세요.";
+            }
+            document.getElementById('info-text').innerText = infoText;
+        }
+
+        function drawRoute() {
+            if (markers.length > 1) {
+                if (polyline) {
+                    polyline.setMap(null);
+                }
+                polyline = new kakao.maps.Polyline({
+                    path: positions,
+                    strokeWeight: 3,
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 0.7,
+                    strokeStyle: 'solid'
+                });
+                polyline.setMap(map);
+            }
+        }
+
+        var ps = new kakao.maps.services.Places();
+
+        function searchPlace(type) {
+            var keyword = document.getElementById(type).value;
+            ps.keywordSearch(keyword, function(data, status, pagination) {
+                if (status === kakao.maps.services.Status.OK) {
+                    var place = data[0];
+                    var position = new kakao.maps.LatLng(place.y, place.x);
+                    if (type === 'start' && !startMarker) {
+                        setStartMarker(position);
+                        placeMode = 'end'; // Set the next place mode to 'end'
+                    } else if (type === 'end' && !endMarker) {
+                        setEndMarker(position);
+                        placeMode = 'via'; // Set the next place mode to 'via'
+                        updateInfoText();
+                    }
+                } else {
+                    alert('검색 결과가 없습니다.');
+                }
+            });
+        }
+
+        function addViaInput() {
+            var viaList = document.getElementById('via-list');
+            var viaInput = document.createElement('div');
+            viaInput.className = 'search-box';
+            viaInput.innerHTML = '<input type="text" placeholder="경유지 검색">' +
+                '<button onclick="searchVia(this)">+</button>';
+            viaList.appendChild(viaInput);
+        }
+
+        function searchVia(button) {
+            var input = button.previousElementSibling;
+            var keyword = input.value;
+            ps.keywordSearch(keyword, function(data, status, pagination) {
+                if (status === kakao.maps.services.Status.OK) {
+                    var place = data[0];
+                    var position = new kakao.maps.LatLng(place.y, place.x);
+                    addViaMarker(position);
+                } else {
+                    alert('검색 결과가 없습니다.');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

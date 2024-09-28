@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<header>
+		<hgroup>
+			<h1>내역</h1>
+        	<h3>목록 만들기 태그 ol(order list), ul(unorder list), dl(definition list)</h3>
+		</hgroup>
+    </header>
+    <hr>
+    <div id="d1">
+    	<h4>ol 태그 : 순번이 있는 목록 만들 때 사용</h4>
+    	<ol type="A"><!-- 순번 종류 : 1(기본), A, a, I, i 변경할 수 있음 -->
+    		<li>java</li>
+    		<li>oracle</li>
+    		<li>jdbc</li>
+    		<li>web front : html, css, javascript, jquery, ajax, open api</li>
+    		<li>web back : servlet, jsp, el & jstl</li>
+    		<li>spring & mybatis framework</li>
+    	</ol>
+    </div>
+    <div id="d2">
+    	<h4>ul 태그 : 순번이 없는 목록 만들 때 사용, 뷸릿기호가 사용됨</h4>
+    	<ul type= "square"> <!-- 기호 종류 : circle(속이 빈 원), disc(기본), square(속이 채워진 사각형)  -->
+    		<li>java</li>
+    		<li>oracle</li>
+    		<li>jdbc</li>
+    		<li>web front : html, css, javascript, jquery, ajax, open api</li>
+    		<li>web back : servlet, jsp, el & jstl</li>
+    		<li>spring & mybatis framework</li>
+    	</ul>
+    </div>
+    <div id="d3">
+        <h4>dl 태그 : definition list (정의 목록) 표시용 태그</h4>
+        <dl>
+            <dt>HTML5</dt> <!-- definition title : 용어 -->
+            <dd> <!-- dt 에 기술한 용어 설명 작성, definition define -->
+                HTML5는 HTML의 완전한 5번째 버전으로 월드 와이드 웹 (World Wide Web)의 핵심 마크업 언어이다. 2004년 7월 Web Hypertext Application Technology Working Group(WHATWG)에서 웹 애플리케이션 1.0이라는 이름으로 세부 명세 작업을 시작하였다.
+            </dd>
+            <dt>CSS</dt>
+            <dd>
+            	종속형 시트 또는 캐스케이딩 스타일 시트(영어: Cascading Style Sheet)는 마크업 언어가 실제 표시되는 방법을 기술하는 스타일 언어(영어: Style sheet language 스타일 시트 랭귀지)로, HTML과 XHTML에 주로 쓰이며, XML에서도 사용할 수 있다. W3C의 표준이고, 레이아웃과 스타일을 정의할 때의 자유도가 높다. 기본 파일명은 style.css이다.
+            </dd>
+            <dt>JAVASCRIPT</dt>
+            <dd>자바스크립트(영어: JavaScript)는 객체 기반의 스크립트 프로그래밍 언어이다. 이 언어는 웹 브라우저 내에서 주로 사용되며, 다른 응용 프로그램의 내장 객체에도 접근할 수 있는 기능을 가지고 있다.
+            </dd>
+        </dl>
+    </div>
+</body>
+</html>

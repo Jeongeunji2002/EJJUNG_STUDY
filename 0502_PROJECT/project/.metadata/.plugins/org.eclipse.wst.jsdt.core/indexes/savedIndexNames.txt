@@ -1,0 +1,5 @@
+INDEX VERSION 1.4+D:\GIT_EJJUNG_STUDY\05_PROJECT_AND_STUDY\0602_PROJECT\project\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2808096127.index
+107353465.index
+688495418.index
+110230093.index

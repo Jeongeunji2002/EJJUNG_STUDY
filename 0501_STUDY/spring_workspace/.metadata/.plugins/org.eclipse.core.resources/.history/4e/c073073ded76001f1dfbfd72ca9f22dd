@@ -1,0 +1,114 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+table th {
+	background-color: #9ff,
+}
+
+table#outer {
+	border: 2px solid navy;
+}
+</style>
+<script type="text/javascript">
+	function dupIdCheck() {
+		// 입력한 사용자 아아디가 사용 가능한지 확인하는 함수
+		// ajax 기술 사용
+
+		return false; // 버튼 클릭이벤트 취소 (submit 버튼에 클릭이벤트 전달을 막기 위함)
+	}
+	window.onload=function(){
+		//선택한 사진파일 이미지 미리보기 처리
+		var photoImg = document.getElementById("photo");
+		photoImg
+	};
+</script>
+<title>first</title>
+<style type="text/css">
+talble th {
+	background-color: #9ff,
+}
+
+tavle#outer {
+	border: 2pzx solid navy,
+}
+</style>
+<script type="text/javascript">
+	function dupCheck() {
+		//입력한 사용자 아이디가 사용 가능한지 확인하는 함수
+		//ajax 기술 사용
+
+		return false;
+	}
+	n
+</script>
+</head>
+<body>
+	<h1 align="center">회원가입 페이지</h1>
+	<br>
+	<form action="enroll.do" method="post">
+		<table id="outer" align="center" width="700" cellspacing="5"
+			cellpadding="0">
+			<tr>
+				<th colspan="2">회원 정보를 입력해주세요. (* 표시는 필수 입력 항목입니다.)
+			</tr>
+			<tr>
+				<th width="120">* 아이디</th>
+				<td><input type="text" name="userId" id="userId" required>
+					<input type="button" value="중복체크" onclick="return dupIdCheck();">
+				</td>
+			</tr>
+			<tr><th>사진첨부</th>
+			<%-- 파일로 전송한다면, input type="file"로 지정하면 됨 첨부된 사진 미리보기 안됨--%>
+				<!-- <td><input type="file" name="photoFileName"></td> -->
+				<%-- 첨부된 사진 미리보기가 되도록 하고자 한다면 --%>
+				<td>
+				<div id="myphoto" style="margin: 0; width: 150px; height: 160px; padding: 0; border: 1px solid navy;">
+				<%-- 사진 첨부가 없을 경우를 위한 미리보기용 이미지 출력되게 설정함 --%>
+				<img src="/first/resources/images/photo1.jpg" id="photo" style="width: 150px;height: 160px;border: 1px solid navy;display: block;margin: 0;padding: 0;">
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<th>* 비밀번호</th>
+				<td><input type="password" name="userPwd" id="userPwd" required></td>
+			</tr>
+			<tr>
+				<th>* 비밀번호 확인</th>
+				<td><input type="password" id="userPwdChk" required></td>
+			</tr>
+			<tr>
+				<th>* 이름</th>
+				<td><input type="text" name="userName" id="userName" required>
+				</td>
+			</tr>
+			<tr>
+				<th>* 성별</th>
+				<td><input type="radio" name="gender" value="M"> 남자
+					&nbsp; <input type="radio" name="gender" value="F"> 여자</td>
+			</tr>
+			<tr>
+				<th>* 나이</th>
+				<td><input type="number" name="age" min="14" placeholder="22"
+					required></td>
+			</tr>
+			<tr>
+				<th>* 전화번호</th>
+				<td><input type="tel" name="phone" required></td>
+			</tr>
+			<tr>
+				<th>* 이메일</th>
+				<td><input type="email" name="email" required></td>
+			</tr>
+			<tr>
+				<th colspan="2"><input type="submit" value="가입하기">
+					&nbsp; <input type="reset" value="작성취소"> &nbsp; <a
+					href="main.do">Home</a></th>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

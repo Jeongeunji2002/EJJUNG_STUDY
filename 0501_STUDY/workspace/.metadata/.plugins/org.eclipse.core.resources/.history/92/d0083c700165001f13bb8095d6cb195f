@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="0E6F5444-955A-126D-1EF8-7400B22A5315" mainViewID="2180A964-1948-E6D2-817B-AAE83706E1DB">
+<createdBy>ict-02</createdBy>
+<createdTime>2024-08-28 05:49:11 UTC</createdTime>
+<ownerDesignName>실습용_스크립트</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

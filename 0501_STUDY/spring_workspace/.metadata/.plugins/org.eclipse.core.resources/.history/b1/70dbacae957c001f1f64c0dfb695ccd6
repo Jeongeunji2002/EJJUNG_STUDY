@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<c:import url="/WEB-INF/views/common/menubar.jsp"/>
+<hr>
+<h1 align="center">공지사항</h1>
+<br>
+<table align="center" width="500" border="1" cellspacing="0" cellpadding="0">
+	<tr>
+		<th>번호</th>
+		<th>제목</th>
+		<th>작성자</th>
+		<th>첨부파일</th>
+		<th>날짜</th>
+	</tr>
+	<c:forEach items="${requestScope.list }" var="n">
+	<tr>
+		<td align="center"> ${n.noticeNO }</td>
+		<td></td>
+		<c:if test="${n.importance eq 'Y' }">
+		<img src="${page.Context.servletContext.contextPath }/rerources/images/ico_notice.gif"
+		width="15" height="15">
+		</c:if>
+	</tr>
+	</c:forEach>
+</table>
+
+<hr>
+<c:import url="/WEB-INF/views/common/footer.jsp"/>
+</body>
+</html>

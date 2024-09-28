@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<servers>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/html test server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="html test server at localhost" name="html test server at localhost" runtime-id="html test server" server-type="org.eclipse.jst.server.tomcat.90" server-type-id="org.eclipse.jst.server.tomcat.90" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="1">
+    <list key="modules" value0="testHTMLProject::org.eclipse.jst.jee.server:testHTMLProject::jst.web::4.0"/>
+  </server>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/testh2 server-config" deployDir="wtpwebapps" hostname="localhost" id="testh2 server" name="testh2 server" runtime-id="test2 server" serveModulesWithoutPublish="true" server-type="org.eclipse.jst.server.tomcat.90" server-type-id="org.eclipse.jst.server.tomcat.90" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="7">
+    <list key="modules" value0="testHTMLProject2::org.eclipse.jst.jee.server:testHTMLProject2::jst.web::4.0"/>
+  </server>
+</servers>

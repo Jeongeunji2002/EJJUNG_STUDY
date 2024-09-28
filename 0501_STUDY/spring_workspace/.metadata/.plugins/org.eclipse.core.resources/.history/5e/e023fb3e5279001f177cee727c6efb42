@@ -1,0 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%-- page 지시자는 jsp 파일에 한번만 사용함 --%>    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>testEL</title>
+</head>
+<body>
+
+</body>
+</html>

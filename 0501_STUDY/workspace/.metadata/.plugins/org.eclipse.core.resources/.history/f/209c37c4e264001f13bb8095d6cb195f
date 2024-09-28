@@ -1,0 +1,14 @@
+package test;
+
+public class TestDBConnect {
+	public TestDBConnect() {}
+	public void orcleConnect() {
+		//1.오라클 jdbc 드라이브 등록
+		Class.
+	}
+
+	public static void main(String[] args) {
+	}
+	
+
+}

@@ -1,0 +1,148 @@
+[09:33:02][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[09:33:02][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 725 ms
+[09:33:02][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[09:33:03][INFO ][FrameworkServlet.java: 547] - Completed initialization in 757 ms
+[10:49:52][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:49:53][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 697 ms
+[10:49:53][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:49:54][INFO ][FrameworkServlet.java: 547] - Completed initialization in 697 ms
+[10:51:19][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:51:20][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 714 ms
+[10:51:20][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:51:20][INFO ][FrameworkServlet.java: 547] - Completed initialization in 722 ms
+[11:07:07][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[11:07:08][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 737 ms
+[11:07:08][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[11:07:09][INFO ][FrameworkServlet.java: 547] - Completed initialization in 741 ms
+[12:20:01][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[12:20:01][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 713 ms
+[12:20:01][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[12:20:02][INFO ][FrameworkServlet.java: 547] - Completed initialization in 699 ms
+[12:20:54][INFO ][MemberController.java: 72] - login : User [userId=user02, userPwd=pass02, userName=null]
+[13:13:30][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[13:13:31][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 707 ms
+[13:13:31][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[13:13:32][INFO ][FrameworkServlet.java: 547] - Completed initialization in 698 ms
+[13:14:15][INFO ][MemberController.java: 72] - login : User [userId=user02, userPwd=pass02, userName=null]
+[14:41:42][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:41:42][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 726 ms
+[14:41:42][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:41:43][INFO ][FrameworkServlet.java: 547] - Completed initialization in 687 ms
+[14:42:26][INFO ][MemberController.java: 72] - login : User [userId=user01, userPwd=pass01, userName=null]
+[15:57:49][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:57:49][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 708 ms
+[15:57:49][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:57:50][INFO ][FrameworkServlet.java: 547] - Completed initialization in 721 ms
+[15:58:39][INFO ][TestController.java: 233] - message : 에이작스로 파일업로드 테스트
+[15:58:39][INFO ][TestController.java: 234] - mfile : 공유.jpg
+[16:32:57][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:32:58][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 694 ms
+[16:32:58][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:32:59][INFO ][FrameworkServlet.java: 547] - Completed initialization in 771 ms
+[16:33:34][INFO ][TestController.java: 233] - message : 자바스크립트 ajax 폼전송
+[16:33:34][INFO ][TestController.java: 234] - mfile : youngK.webp
+[17:49:22][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[17:49:22][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 705 ms
+[17:49:22][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[17:49:23][INFO ][FrameworkServlet.java: 547] - Completed initialization in 710 ms
+[17:49:42][INFO ][TestController.java: 252] - down file : sample.txt
+[18:05:12][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[18:05:12][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 695 ms
+[18:05:12][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[18:05:13][INFO ][FrameworkServlet.java: 547] - Completed initialization in 724 ms
+[18:05:28][INFO ][TestController.java: 252] - down file : sample.txt
+[14:50:12][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:50:13][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 596 ms
+[14:50:13][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:50:13][INFO ][FrameworkServlet.java: 547] - Completed initialization in 616 ms
+[14:50:56][INFO ][NoticeController.java: 78] - ndetail.do : 10
+[14:50:58][INFO ][NoticeController.java: 78] - ndetail.do : 9
+[15:03:48][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:03:49][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 601 ms
+[15:03:49][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:03:49][INFO ][FrameworkServlet.java: 547] - Completed initialization in 650 ms
+[15:03:54][INFO ][NoticeController.java: 78] - ndetail.do : 9
+[15:03:58][INFO ][NoticeController.java: 78] - ndetail.do : 1
+[15:04:01][INFO ][NoticeController.java: 78] - ndetail.do : 11
+[15:04:05][INFO ][NoticeController.java: 78] - ndetail.do : 1
+[15:04:12][INFO ][NoticeController.java: 78] - ndetail.do : 11
+[15:04:16][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /first/bdetail.do
+[15:04:19][INFO ][NoticeController.java: 78] - ndetail.do : 8
+[15:04:31][INFO ][MemberController.java: 72] - login : User [userId=admin, userPwd=admin, userName=null]
+[15:04:34][INFO ][NoticeController.java: 78] - ndetail.do : 10
+[15:04:35][INFO ][NoticeController.java: 78] - ndetail.do : 10
+[15:04:36][INFO ][NoticeController.java: 78] - ndetail.do : 9
+[15:04:41][INFO ][NoticeController.java: 78] - ndetail.do : 2
+[15:04:44][INFO ][NoticeController.java: 78] - ndetail.do : 10
+[15:04:45][INFO ][NoticeController.java: 78] - ndetail.do : 10
+[15:04:45][INFO ][NoticeController.java: 78] - ndetail.do : 10
+[15:04:46][INFO ][NoticeController.java: 78] - ndetail.do : 10
+[15:04:46][INFO ][NoticeController.java: 78] - ndetail.do : 10
+[15:04:46][INFO ][NoticeController.java: 78] - ndetail.do : 10
+[15:04:46][INFO ][NoticeController.java: 78] - ndetail.do : 10
+[15:04:46][INFO ][NoticeController.java: 78] - ndetail.do : 10
+[15:04:46][INFO ][NoticeController.java: 78] - ndetail.do : 10
+[15:04:56][INFO ][NoticeController.java: 78] - ndetail.do : 7
+[15:04:59][INFO ][NoticeController.java: 78] - ndetail.do : 7
+[15:05:00][INFO ][NoticeController.java: 78] - ndetail.do : 12
+[15:05:01][INFO ][NoticeController.java: 78] - ndetail.do : 3
+[15:05:02][INFO ][NoticeController.java: 78] - ndetail.do : 1
+[15:05:10][INFO ][NoticeController.java: 78] - ndetail.do : 3
+[15:05:27][INFO ][MemberController.java: 72] - login : User [userId=admin, userPwd=admin, userName=null]
+[15:05:51][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:05:52][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 592 ms
+[15:05:52][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:05:53][INFO ][FrameworkServlet.java: 547] - Completed initialization in 632 ms
+[15:05:57][INFO ][MemberController.java: 72] - login : User [userId=admin, userPwd=admin, userName=null]
+[15:06:01][INFO ][NoticeController.java: 78] - ndetail.do : 9
+[15:11:16][INFO ][NoticeController.java: 78] - ndetail.do : 10
+[15:11:18][INFO ][NoticeController.java: 78] - ndetail.do : 9
+[15:12:24][INFO ][NoticeController.java: 78] - ndetail.do : 9
+[15:12:26][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /first/nmoveup.do
+[15:12:35][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /first/blist.do
+[15:13:03][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:13:03][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 595 ms
+[15:13:03][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:13:04][INFO ][FrameworkServlet.java: 547] - Completed initialization in 623 ms
+[15:13:04][INFO ][NoticeController.java: 78] - ndetail.do : 10
+[15:13:22][INFO ][NoticeController.java: 78] - ndetail.do : 5
+[15:13:30][INFO ][NoticeController.java: 78] - ndetail.do : 10
+[15:13:36][INFO ][MemberController.java: 72] - login : User [userId=admin, userPwd=admin, userName=null]
+[15:13:40][INFO ][NoticeController.java: 78] - ndetail.do : 9
+[15:13:43][INFO ][NoticeController.java: 78] - ndetail.do : 8
+[15:13:46][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /first/bdetail.do
+[15:13:52][INFO ][NoticeController.java: 78] - ndetail.do : 10
+[15:30:21][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:30:21][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 611 ms
+[15:30:21][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:30:22][INFO ][FrameworkServlet.java: 547] - Completed initialization in 652 ms
+[15:30:30][INFO ][NoticeController.java: 85] - ndetail.do : 10
+[15:30:43][INFO ][NoticeController.java: 85] - ndetail.do : 10
+[15:57:10][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[15:57:10][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 604 ms
+[15:57:10][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[15:57:11][INFO ][FrameworkServlet.java: 547] - Completed initialization in 648 ms
+[15:58:10][INFO ][MemberController.java: 72] - login : User [userId=admin, userPwd=admin, userName=null]
+[15:58:14][INFO ][NoticeController.java: 85] - ndetail.do : 8
+[15:58:18][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /first/blist.do
+[15:59:15][WARN ][DispatcherServlet.java: 1278] - No mapping for POST /first/ninsert.do
+[16:09:02][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:09:03][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 596 ms
+[16:09:03][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:09:03][INFO ][FrameworkServlet.java: 547] - Completed initialization in 611 ms
+[16:09:21][INFO ][NoticeController.java: 129] - ninsert.do : Notice [noticeNo=0, noticeTitle=[중요 공지]정오에서 알려드립니다, noticeDate=null, noticeWriter=admin, noticeContent=조졌어! 정오 망했어, originalFilePath=null, renameFilePath=null, importance=null, impEndDate=2024-09-27, readCount=0]
+[16:09:25][INFO ][NoticeController.java: 86] - ndetail.do : 13
+[16:10:17][INFO ][NoticeController.java: 86] - ndetail.do : 13
+[16:10:20][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /first/ndelete.do
+[16:10:23][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /first/nmoveup.do
+[16:13:51][WARN ][AbstractHandlerExceptionResolver.java: 208] - Resolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors<EOL>Field error in object 'notice' on field 'impEndDate': rejected value []; codes [typeMismatch.notice.impEndDate,typeMismatch.impEndDate,typeMismatch.java.sql.Date,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [notice.impEndDate,impEndDate]; arguments []; default message [impEndDate]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.sql.Date' for property 'impEndDate'; nested exception is org.springframework.core.convert.ConversionFailedException: Failed to convert from type [java.lang.String] to type [java.sql.Date] for value ''; nested exception is java.lang.IllegalArgumentException]]
+[16:14:00][WARN ][AbstractHandlerExceptionResolver.java: 208] - Resolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors<EOL>Field error in object 'notice' on field 'impEndDate': rejected value []; codes [typeMismatch.notice.impEndDate,typeMismatch.impEndDate,typeMismatch.java.sql.Date,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [notice.impEndDate,impEndDate]; arguments []; default message [impEndDate]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.sql.Date' for property 'impEndDate'; nested exception is org.springframework.core.convert.ConversionFailedException: Failed to convert from type [java.lang.String] to type [java.sql.Date] for value ''; nested exception is java.lang.IllegalArgumentException]]
+[16:14:10][INFO ][NoticeController.java: 86] - ndetail.do : 13
+[16:14:20][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /first/blist.do
+[16:18:57][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[16:18:58][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 591 ms
+[16:18:58][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[16:18:58][INFO ][FrameworkServlet.java: 547] - Completed initialization in 640 ms
+[16:19:05][INFO ][NoticeController.java: 86] - ndetail.do : 13
+[16:19:24][INFO ][NoticeController.java: 86] - ndetail.do : 10
+[16:19:25][INFO ][NoticeController.java: 86] - ndetail.do : 10

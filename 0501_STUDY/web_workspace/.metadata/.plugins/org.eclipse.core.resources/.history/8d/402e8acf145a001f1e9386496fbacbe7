@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<header>
+	<h1>플로팅 프레임 태그 연습</h1>
+</header>
+<hr>
+<p><!-- paragraph의 줄임말, 문단 구역을 표시할 떄 사용, 속성 : align="left | center | right" 내용 배치 지정 -->
+iframe 태그는 플로팅 프레임이라고 하며, 기존 웹페이지 위에 띄워지는 작은 화면을 만들 때 사용하는 태그이다
+배너 광고 창 등에 활용되며, css 속성과 함꼐 사용해야 만들 수 있음
+</p>
+<button>Click Me!</button>
+<iframe id="banner" src="./banner/html" width="300" height = "300"></iframe>
+</body>
+</html>

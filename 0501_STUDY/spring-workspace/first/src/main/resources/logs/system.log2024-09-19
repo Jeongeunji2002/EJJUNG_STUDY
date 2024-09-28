@@ -1,0 +1,271 @@
+[13:18:50] [INFO ] [ContextLoader.java : 271] org.springframework.web.context.ContextLoader : - Root WebApplicationContext: initialization started
+[13:18:50] [INFO ] [ContextLoader.java : 307] org.springframework.web.context.ContextLoader : - Root WebApplicationContext initialized in 538 ms
+[13:18:50] [INFO ] [FrameworkServlet.java : 525] org.springframework.web.servlet.DispatcherServlet : - Initializing Servlet 'appServlet'
+[13:18:51] [INFO ] [FrameworkServlet.java : 547] org.springframework.web.servlet.DispatcherServlet : - Completed initialization in 523 ms
+[13:18:53] [INFO ] [MemberController.java : 70] org.myweb.first.member.controller.MemberController : - login : User [userId=ejjung02, userPwd=Cadencia, userName=null]
+[14:13:27] [INFO ] [MemberController.java : 70] org.myweb.first.member.controller.MemberController : - login : User [userId=ejjung02, userPwd=Cadencia, userName=null]
+[14:13:57] [INFO ] [MemberController.java : 70] org.myweb.first.member.controller.MemberController : - login : User [userId=ejjung02, userPwd=Cadencia, userName=null]
+[14:14:15] [INFO ] [MemberController.java : 141] org.myweb.first.member.controller.MemberController : - myinfo.do : ejjung02
+[14:14:40] [INFO ] [MemberController.java : 70] org.myweb.first.member.controller.MemberController : - login : User [userId=ohjungmin, userPwd=ohjungmin123, userName=null]
+[14:18:04] [INFO ] [MemberController.java : 117] org.myweb.first.member.controller.MemberController : - enroll.do : Member [userId=root, userPwd=root, userName=root, gender=M, age=27, phone=010-1234-5678, email=root@gmail.com, enrollDate=null, lastModified=null, singType=null, adminYn=null, loginOk=null, pthotoFileName=null]
+[14:18:04] [INFO ] [MemberController.java : 123] org.myweb.first.member.controller.MemberController : - after encode : $2a$10$9yVJdxIkFqjqCI4MSHjT4uSq1Y9.cMzp8ibFQqCpuD.3uhkJ19xAWletgth : 60
+[14:18:23] [INFO ] [MemberController.java : 117] org.myweb.first.member.controller.MemberController : - enroll.do : Member [userId=root, userPwd=root, userName=root, gender=M, age=27, phone=010-1234-5678, email=root@gmail.com, enrollDate=null, lastModified=null, singType=null, adminYn=null, loginOk=null, pthotoFileName=null]
+[14:18:24] [INFO ] [MemberController.java : 123] org.myweb.first.member.controller.MemberController : - after encode : $2a$10$yra7C0L8PispudeibJYMM.3a7Bi35Trjqav9pC8AkKzse49sUjZCuletgth : 60
+[14:18:24] [ERROR] [Slf4jSpyLogDelegator.java : 120] jdbc.audit : - 7. PreparedStatement.execute() INSERT INTO MEMBER
+		VALUES('root', '$2a$10$yra7C0L8PispudeibJYMM.3a7Bi35Trjqav9pC8AkKzse49sUjZCu', 'root',
+		'M', 27, '010-1234-5678',
+		'root@gmail.com',
+		default, default, default, default, default, default)
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: 무결성 제약 조건(C##TESTWEB.PK_MEMBER_UID)에 위배됩니다
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:494)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1052)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:537)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:255)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:610)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:253)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:86)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:928)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1136)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3640)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeInternal(T4CPreparedStatement.java:1384)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3752)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1079)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427)
+	at com.sun.proxy.$Proxy9.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:272)
+	at org.myweb.first.member.model.dao.MemberDao.insertMember(MemberDao.java:25)
+	at org.myweb.first.member.model.service.MemberServiceImpl.insertMember(MemberServiceImpl.java:25)
+	at org.myweb.first.member.model.service.MemberServiceImpl$$FastClassBySpringCGLIB$$43c930d7.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708)
+	at org.myweb.first.member.model.service.MemberServiceImpl$$EnhancerBySpringCGLIB$$ff950a49.insertMember(<generated>)
+	at org.myweb.first.member.controller.MemberController.memberInsertMethod(MemberController.java:125)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:383)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:936)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: Error : 1, Position : 0, Sql = INSERT INTO MEMBER
+		VALUES(:1 , :2 , :3 ,
+		:4 , :5 , :6 ,
+		:7 ,
+		default, default, default, default, default, default), OriginalSql = INSERT INTO MEMBER
+		VALUES(?, ?, ?,
+		?, ?, ?,
+		?,
+		default, default, default, default, default, default), Error Msg = ORA-00001: 무결성 제약 조건(C##TESTWEB.PK_MEMBER_UID)에 위배됩니다
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	... 90 more
+[14:18:24] [ERROR] [Slf4jSpyLogDelegator.java : 139] jdbc.sqltiming : - 7. PreparedStatement.execute() FAILED! INSERT INTO MEMBER
+		VALUES('root', '$2a$10$yra7C0L8PispudeibJYMM.3a7Bi35Trjqav9pC8AkKzse49sUjZCu', 'root',
+		'M', 27, '010-1234-5678',
+		'root@gmail.com',
+		default, default, default, default, default, default) {FAILED after 17 msec}
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: 무결성 제약 조건(C##TESTWEB.PK_MEMBER_UID)에 위배됩니다
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:494)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1052)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:537)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:255)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:610)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:253)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:86)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:928)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1136)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3640)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeInternal(T4CPreparedStatement.java:1384)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3752)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1079)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427)
+	at com.sun.proxy.$Proxy9.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:272)
+	at org.myweb.first.member.model.dao.MemberDao.insertMember(MemberDao.java:25)
+	at org.myweb.first.member.model.service.MemberServiceImpl.insertMember(MemberServiceImpl.java:25)
+	at org.myweb.first.member.model.service.MemberServiceImpl$$FastClassBySpringCGLIB$$43c930d7.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708)
+	at org.myweb.first.member.model.service.MemberServiceImpl$$EnhancerBySpringCGLIB$$ff950a49.insertMember(<generated>)
+	at org.myweb.first.member.controller.MemberController.memberInsertMethod(MemberController.java:125)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:383)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:936)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: Error : 1, Position : 0, Sql = INSERT INTO MEMBER
+		VALUES(:1 , :2 , :3 ,
+		:4 , :5 , :6 ,
+		:7 ,
+		default, default, default, default, default, default), OriginalSql = INSERT INTO MEMBER
+		VALUES(?, ?, ?,
+		?, ?, ?,
+		?,
+		default, default, default, default, default, default), Error Msg = ORA-00001: 무결성 제약 조건(C##TESTWEB.PK_MEMBER_UID)에 위배됩니다
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498)
+	... 90 more
+[14:18:50] [INFO ] [ContextLoader.java : 271] org.springframework.web.context.ContextLoader : - Root WebApplicationContext: initialization started
+[14:18:50] [INFO ] [ContextLoader.java : 307] org.springframework.web.context.ContextLoader : - Root WebApplicationContext initialized in 542 ms
+[14:18:50] [INFO ] [FrameworkServlet.java : 525] org.springframework.web.servlet.DispatcherServlet : - Initializing Servlet 'appServlet'
+[14:18:51] [INFO ] [FrameworkServlet.java : 547] org.springframework.web.servlet.DispatcherServlet : - Completed initialization in 547 ms
+[14:19:09] [INFO ] [MemberController.java : 70] org.myweb.first.member.controller.MemberController : - login : User [userId=root, userPwd=root, userName=null]
+[14:19:41] [INFO ] [MemberController.java : 70] org.myweb.first.member.controller.MemberController : - login : User [userId=root, userPwd=root, userName=null]
+[14:19:46] [INFO ] [MemberController.java : 70] org.myweb.first.member.controller.MemberController : - login : User [userId=root, userPwd=root, userName=null]
+[14:19:55] [INFO ] [MemberController.java : 70] org.myweb.first.member.controller.MemberController : - login : User [userId=root, userPwd=root, userName=null]
+[14:20:26] [INFO ] [MemberController.java : 70] org.myweb.first.member.controller.MemberController : - login : User [userId=root, userPwd=root, userName=null]
+[14:21:15] [INFO ] [MemberController.java : 70] org.myweb.first.member.controller.MemberController : - login : User [userId=root, userPwd=root, userName=null]
+[15:02:16] [INFO ] [ContextLoader.java : 271] org.springframework.web.context.ContextLoader : - Root WebApplicationContext: initialization started
+[15:02:17] [INFO ] [ContextLoader.java : 307] org.springframework.web.context.ContextLoader : - Root WebApplicationContext initialized in 546 ms
+[15:02:17] [INFO ] [FrameworkServlet.java : 525] org.springframework.web.servlet.DispatcherServlet : - Initializing Servlet 'appServlet'
+[15:02:17] [INFO ] [FrameworkServlet.java : 547] org.springframework.web.servlet.DispatcherServlet : - Completed initialization in 529 ms
+[15:04:20] [INFO ] [MemberController.java : 70] org.myweb.first.member.controller.MemberController : - login : User [userId=ejjung02, userPwd=Cadencia, userName=null]
+[15:14:12] [INFO ] [ContextLoader.java : 271] org.springframework.web.context.ContextLoader : - Root WebApplicationContext: initialization started
+[15:14:13] [INFO ] [ContextLoader.java : 307] org.springframework.web.context.ContextLoader : - Root WebApplicationContext initialized in 540 ms
+[15:14:13] [INFO ] [FrameworkServlet.java : 525] org.springframework.web.servlet.DispatcherServlet : - Initializing Servlet 'appServlet'
+[15:14:13] [INFO ] [FrameworkServlet.java : 547] org.springframework.web.servlet.DispatcherServlet : - Completed initialization in 552 ms
+[15:18:21] [INFO ] [ContextLoader.java : 271] org.springframework.web.context.ContextLoader : - Root WebApplicationContext: initialization started
+[15:18:22] [INFO ] [ContextLoader.java : 307] org.springframework.web.context.ContextLoader : - Root WebApplicationContext initialized in 503 ms
+[15:18:22] [INFO ] [FrameworkServlet.java : 525] org.springframework.web.servlet.DispatcherServlet : - Initializing Servlet 'appServlet'
+[15:18:22] [INFO ] [FrameworkServlet.java : 547] org.springframework.web.servlet.DispatcherServlet : - Completed initialization in 477 ms
+[15:19:14] [INFO ] [ContextLoader.java : 271] org.springframework.web.context.ContextLoader : - Root WebApplicationContext: initialization started
+[15:19:15] [INFO ] [ContextLoader.java : 307] org.springframework.web.context.ContextLoader : - Root WebApplicationContext initialized in 488 ms
+[15:19:15] [INFO ] [FrameworkServlet.java : 525] org.springframework.web.servlet.DispatcherServlet : - Initializing Servlet 'appServlet'
+[15:19:15] [INFO ] [FrameworkServlet.java : 547] org.springframework.web.servlet.DispatcherServlet : - Completed initialization in 497 ms
+[15:20:11] [INFO ] [ContextLoader.java : 271] org.springframework.web.context.ContextLoader : - Root WebApplicationContext: initialization started
+[15:20:11] [INFO ] [ContextLoader.java : 307] org.springframework.web.context.ContextLoader : - Root WebApplicationContext initialized in 460 ms
+[15:20:11] [INFO ] [FrameworkServlet.java : 525] org.springframework.web.servlet.DispatcherServlet : - Initializing Servlet 'appServlet'
+[15:20:12] [INFO ] [FrameworkServlet.java : 547] org.springframework.web.servlet.DispatcherServlet : - Completed initialization in 496 ms
+[15:24:17] [INFO ] [ContextLoader.java : 271] org.springframework.web.context.ContextLoader : - Root WebApplicationContext: initialization started
+[15:24:18] [INFO ] [ContextLoader.java : 307] org.springframework.web.context.ContextLoader : - Root WebApplicationContext initialized in 578 ms
+[15:24:18] [INFO ] [FrameworkServlet.java : 525] org.springframework.web.servlet.DispatcherServlet : - Initializing Servlet 'appServlet'
+[15:24:19] [INFO ] [FrameworkServlet.java : 547] org.springframework.web.servlet.DispatcherServlet : - Completed initialization in 596 ms
+[15:24:26] [INFO ] [MemberController.java : 70] org.myweb.first.member.controller.MemberController : - login : User [userId=ejjung02, userPwd=Cadencia, userName=null]
+[15:24:33] [INFO ] [MemberController.java : 70] org.myweb.first.member.controller.MemberController : - login : User [userId=ohjungmin, userPwd=, userName=null]
+[15:24:40] [INFO ] [MemberController.java : 70] org.myweb.first.member.controller.MemberController : - login : User [userId=ohjungmin, userPwd=ohjungmin123, userName=null]

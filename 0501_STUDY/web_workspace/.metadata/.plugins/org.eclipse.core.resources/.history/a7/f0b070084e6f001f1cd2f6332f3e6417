@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>출발지와 다중 도착지 길찾기</title>
+<style>
+.map_wrap, .map_wrap * {
+	margin: 0;
+	padding: 0;
+	font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
+	font-size: 12px;
+}
+
+.map_wrap a, .map_wrap a:hover, .map_wrap a:active {
+	color: #000;
+	text-decoration: none;
+}
+
+.map_wrap {
+	position: relative;
+	width: 100%;
+	height: 500px;
+}
+
+#map {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+#menu_wrap {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	width: 250px;
+	height: calc(100% - 20px);
+	background: rgba(255, 255, 255, 0.7);
+	padding: 10px;
+	border-radius: 10px;
+	z-index: 1;
+	overflow: hidden;
+}
+
+#menu_wrap form {
+	display: flex;
+	flex-direction: column;
+}
+
+#menu_wrap form input[type="text"] {
+	width: 100%;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+#menu_wrap form button {
+	padding: 5px;
+	cursor: pointer;
+}
+
+#menu_wrap form textarea {
+	width: 100%;
+	padding: 5px;
+	margin-bottom: 10px;
+	resize: vertical;
+}
+
+#placesList {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	overflow-y: auto;
+	height: calc(100% - 60px);
+}
+
+#placesList .item {
+	position: relative;
+	border-bottom: 1px solid #888;
+	overflow: hidden;
+	cursor: pointer;
+	min-height: 65px;
+	padding: 10px;
+}
+
+#placesList .item span {
+	display: block;
+	margin-top: 4px;
+}
+
+#placesList .item h5, #placesList .item .info {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+#placesList .item .info {
+	padding-left: 55px;
+}
+
+#placesList .info .gray {
+	color: #8a8a8a;
+}
+
+#placesList .info .jibun {
+	padding-left: 26px;
+	background:
+		url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png)
+		no-repeat;
+}
+
+#placesList .info .tel {
+	color: #009900;
+}
+
+#placesList .item .markerbg {
+	float: left;
+	position: absolute;
+	width: 36px;
+	height: 37px;
+	margin: 10px 0 0 10px;
+	background:
+		url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png)
+		no-repeat;
+}
+
+#placesList .item .marker_1 {
+	background-position: 0 -10px;
+}
+
+#placesList .item .marker_2 {
+	background-position: 0 -56px;
+}
+
+#placesList .item .marker_3 {
+	background-position: 0 -102px;
+}
+
+#placesList .item .marker_4 {
+	background-position: 0 -148px;
+}
+
+#placesList .item .marker_5 {
+	background-position: 0 -194px;
+}
+
+#placesList .item .marker_6 {
+	background-position: 0 -240px;
+}
+
+#placesList .item .marker_7 {
+	background-position: 0 -286px;
+}
+
+#placesList .item .marker_8 {
+	background-position: 0 -332px;
+}
+
+#placesList .item .marker_9 {
+	background-position: 0 -378px;
+}
+
+#placesList .item .marker_10 {
+	background-position: 0 -423px;
+}
+
+#placesList .item .marker_11 {
+	background-position: 0 -470px;
+}
+
+#placesList .item .marker_12 {
+	background-position: 0 -516px;
+}
+
+#placesList .item .marker_13 {
+	background-position: 0 -562px;
+}
+
+#placesList .item .marker_14 {
+	background-position: 0 -608px;
+}
+
+#placesList .item .marker_15 {
+	background-position: 0 -654px;
+}
+
+#pagination {
+	margin: 10px 0;
+	text-align: center;
+}
+
+#pagination a {
+	display: inline-block;
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+#pagination .on {
+	font-weight: bold;
+	color: #777;
+}
+</style>
+</head>
+<body>
+	<div class="map_wrap">
+		<div id="map"></div>
+
+		<div id="menu_wrap">
+			<form onsubmit="searchRoute(); return false;">
+				<input type="text" id="start" placeholder="출발지">
+				<textarea id="end" placeholder="도착지(여러 개 입력 시 줄바꿈으로 구분)"></textarea>
+				<button type="submit">길찾기</button>
+			</form>
+			<hr>
+			<ul id="placesList"></ul>
+			<div id="pagination"></div>
+		</div>
+	</div>
+
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c97889f438939687969d7a54a445021f&libraries=services"></script>
+	<script>
+		var markers = [];
+		var mapContainer = document.getElementById('map'), mapOption = {
+			center : new kakao.maps.LatLng(37.566826, 126.9786567),
+			level : 3
+		};
+		var map = new kakao.maps.Map(mapContainer, mapOption);
+		var ps = new kakao.maps.services.Places();
+		var infowindow = new kakao.maps.InfoWindow({
+			zIndex : 1
+		});
+		var directionsService = new kakao.maps.services.Directions(); // 길찾기 서비스
+
+		function searchRoute() {
+			var start = document.getElementById('start').value;
+			var end = document.getElementById('end').value.split('\n').filter(Boolean);
+
+			if (!start || end.length === 0) {
+				alert('출발지와 도착지를 입력해주세요!');
+				return false;
+			}
+
+			ps.keywordSearch(start, function(result, status) {
+				if (status === kakao.maps.services.Status.OK) {
+					var startPosition = new kakao.maps.LatLng(result[0].y, result[0].x);
+					
+					var endPositions = [];
+					var completedRequests = 0;
+
+					end.forEach(function(destination, index) {
+						ps.keywordSearch(destination, function(result, status) {
+							if (status === kakao.maps.services.Status.OK) {
+								endPositions.push(new kakao.maps.LatLng(result[0].y, result[0].x));
+							} else {
+								alert(destination + ' 도착지 검색에 실패했습니다.');
+							}
+							
+							completedRequests++;
+							if (completedRequests === end.length) {
+								displayRoute(startPosition, endPositions);
+							}
+						});
+					});
+				} else {
+					alert('출발지 검색에 실패했습니다.');
+				}
+			});
+		}
+
+		function displayRoute(start, endPositions) {
+			var waypoints = endPositions.slice(1, endPositions.length - 1).map(pos => ({ location: pos }));
+			
+			directionsService.route({
+				origin: start,
+				destination: endPositions[endPositions.length - 1],
+				waypoints: waypoints
+			}, function(result, status) {
+				if (status === kakao.maps.services.Status.OK) {
+					map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
+					map.setBounds(result.routeBounds);
+				} else {
+					alert('길찾기 오류가 발생했습니다.');
+				}
+			});
+		}
+
+		function removeAllChildNods(el) {
+			while (el.hasChildNodes()) {
+				el.removeChild(el.lastChild);
+			}
+		}
+
+		function displayPagination(pagination) {
+			var paginationEl = document.getElementById('pagination'),
+				fragment = document.createDocumentFragment(),
+				i;
+
+			removeAllChildNods(paginationEl);
+
+			for (i = 1; i <= pagination.last; i++) {
+				var el = document.createElement('a');
+				el.href = "#";
+				el.innerHTML = i;
+
+				if (i === pagination.current) {
+					el.className = 'on';
+				} else {
+					el.onclick = (function(i) {
+						return function() {
+							pagination.gotoPage(i);
+						};
+					})(i);
+				}
+
+				fragment.appendChild(el);
+			}
+
+			paginationEl.appendChild(fragment);
+		}
+	</script>
+</body>
+</html>

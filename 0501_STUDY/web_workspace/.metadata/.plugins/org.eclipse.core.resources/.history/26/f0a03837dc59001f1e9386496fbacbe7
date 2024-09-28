@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>우주 분위기 테스트</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: url('https://example.com/space-background.jpg') no-repeat center center fixed;
+        background-size: cover;
+        color: #ffffff;
+        font-family: 'Arial', sans-serif; /* 우주 분위기에 맞는 글꼴 선택 */
+    }
+
+    h1 {
+        color: #00bfff; /* 우주를 연상시키는 밝은 색상 */
+        text-align: center;
+        margin-top: 50px;
+        font-size: 3em;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* 텍스트에 그림자 효과 추가 */
+    }
+
+    hr {
+        border: 0;
+        border-top: 2px solid #00bfff; /* 우주 분위기에 맞는 색상으로 변경 */
+        width: 80%;
+        margin: 20px auto;
+    }
+
+    nav img {
+        display: block;
+        margin: 0 auto;
+        border-radius: 50%; /* 이미지에 둥근 모서리 추가 */
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* 이미지에 우주 효과 추가 */
+    }
+</style>
+</head>
+<body>
+<h1>PTST</h1>
+<hr>
+<nav>
+    <a href="/testh/index.html">
+        <img src="/testh/resources/images/cyworld.jpg" width="150" height="150" border="0">
+    </a>
+</nav>
+</body>
+</html>

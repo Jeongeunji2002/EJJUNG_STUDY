@@ -1,0 +1,16 @@
+package member.model.service;
+
+import static common.JCBCTemplate.*;
+
+import java.sql.Connection;
+
+import member.model.dto.User;
+
+public class MemberService {
+	public User selectLogin(User user) {
+		Connection conn = getConnection();
+		User loginUser = mdao.selectLogin(conn,user);
+		close(conn);
+		return conn;
+	}
+}

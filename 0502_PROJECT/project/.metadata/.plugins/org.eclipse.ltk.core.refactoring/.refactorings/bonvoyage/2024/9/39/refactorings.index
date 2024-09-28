@@ -1,0 +1,32 @@
+1727328177499	Move file
+1727329108189	Move file
+1727329167588	Delete element
+1727329168775	Delete element
+1727329388001	Rename resource 'discript'
+1727329581672	Rename resource 'test-mapper.xml'
+1727329632481	Delete element
+1727330466011	Rename package 'com.synergysoft.bonvoyage.guide.model.controller'
+1727332575142	Delete element
+1727332604681	Rename type 'CommentService'
+1727332852202	Rename package 'com.synergysoft.bonvoyage.reportboard.controller'
+1727332857855	Rename package 'com.synergysoft.bonvoyage.reportboard.model.dao'
+1727332862483	Rename package 'com.synergysoft.bonvoyage.reportboard.model.dto'
+1727332865885	Rename package 'com.synergysoft.bonvoyage.reportboard.model.service'
+1727332946209	Copy file
+1727332954407	Copy file
+1727332962018	Copy file
+1727332969606	Copy file
+1727332976405	Copy file
+1727332983417	Copy file
+1727332993362	Copy file
+1727333000047	Copy file
+1727333006941	Copy file
+1727333015006	Delete element
+1727334428682	Rename package 'com.synergysoft.bonvoyage.map.controller'
+1727334434100	Rename package 'com.synergysoft.bonvoyage.map.model.dao'
+1727334438666	Rename package 'com.synergysoft.bonvoyage.map.model.dto'
+1727334443948	Rename package 'com.synergysoft.bonvoyage.map.model.service'
+1727334450954	Rename package 'com.synergysoft.bonvoyage.map.bmodel.service'
+1727334458254	Rename package 'com.synergysoft.bonvoyage.bmap.bmodel.service'
+1727334491668	Rename type 'Map'
+1727334516195	Rename resource 'map-mapper.xml'

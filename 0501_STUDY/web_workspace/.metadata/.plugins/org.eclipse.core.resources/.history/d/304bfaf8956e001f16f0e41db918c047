@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>지도와 장소 검색</title>
+<style>
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.map_wrap {
+	position: relative;
+	width: 100%;
+	height: 500px;
+}
+
+.radius_border {
+	border: 1px solid #919191;
+	border-radius: 5px;
+}
+
+.custom_typecontrol, .custom_zoomcontrol {
+	position: absolute;
+	right: 10px;
+	z-index: 1;
+}
+
+.custom_typecontrol {
+	top: 10px;
+	width: 130px;
+	height: 30px;
+}
+
+.custom_zoomcontrol {
+	top: 50px;
+	width: 36px;
+	height: 80px;
+	background-color: #f5f5f5;
+}
+
+.custom_typecontrol span, .custom_zoomcontrol span {
+	display: block;
+	width: 36px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;
+}
+
+.custom_typecontrol span {
+	width: 65px;
+}
+
+.custom_typecontrol .btn {
+	background: linear-gradient(#fff, #e6e6e6);
+}
+
+.custom_typecontrol .btn:hover {
+	background: linear-gradient(#f5f5f5, #e3e3e3);
+}
+
+.custom_typecontrol .btn:active {
+	background: linear-gradient(#e6e6e6, #fff);
+}
+
+.custom_typecontrol .selected_btn {
+	color: #fff;
+	background: linear-gradient(#425470, #5b6d8a);
+}
+
+.custom_zoomcontrol span img {
+	width: 15px;
+	height: 15px;
+	padding: 12px 0;
+}
+
+#menu_wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 250px;
+	margin: 10px 0 30px 10px;
+	padding: 5px;
+	overflow-y: auto;
+	background: rgba(255, 255, 255, 0.7);
+	font-size: 12px;
+	border-radius: 10px;
+}
+
+#menu_wrap .option {
+	text-align: center;
+}
+
+#menu_wrap .option button {
+	margin-left: 5px;
+}
+
+#placesList li {
+	list-style: none;
+}
+
+#placesList .item {
+	position: relative;
+	border-bottom: 1px solid #888;
+	overflow: hidden;
+	cursor: pointer;
+	min-height: 65px;
+}
+
+#placesList .item span {
+	display: block;
+	margin-top: 4px;
+}
+
+#placesList .item h5, #placesList .item .info {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+#placesList .item .info {
+	padding: 10px 0 10px 55px;
+}
+
+#placesList .info .gray {
+	color: #8a8a8a;
+}
+
+#placesList .info .jibun {
+	padding-left: 26px;
+	background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;
+}
+
+#placesList .info .tel {
+	color: #009900;
+}
+
+#placesList .item .markerbg {
+	float: left;
+	position: absolute;
+	width: 36px;
+	height: 37px;
+	margin: 10px 0 0 10px;
+	background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;
+}
+
+#pagination {
+	margin: 10px auto;
+	text-align: center;
+}
+
+#pagination a {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+#pagination .on {
+	font-weight: bold;
+	cursor: default;
+	color: #777;
+}
+
+#optionPanel, #selectionBox {
+	display: none;
+	position: absolute;
+	background: white;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	z-index: 2;
+}
+
+#optionPanel button, #selectionBox button {
+	margin: 5px;
+}
+</style>
+</head>
+<body>
+	<div class="map_wrap">
+		<div id="map" style="width: 100%; height: 100%; position: relative;"></div>
+		<div class="custom_typecontrol radius_border">
+			<span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
+			<span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
+		</div>
+		<div class="custom_zoomcontrol radius_border">
+			<span onclick="zoomIn()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></span>
+			<span onclick="zoomOut()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></span>
+		</div>
+		<div id="menu_wrap" class="bg_white">
+			<div class="option">
+				<form onsubmit="searchPlaces(); return false;">
+					키워드 : <input type="text" id="keyword" size="15">
+					<button type="submit">검색하기</button>
+				</form>
+			</div>
+			<hr>
+			<ul id="placesList"></ul>
+			<div id="pagination"></div>
+		</div>
+	</div>
+	<div id="clickLatlng"></div>
+	<div id="optionPanel">
+		<p>좌표를 저장하려면 아래 버튼을 클릭하세요:</p>
+		<button onclick="saveCoordinates('Option1')">시작 지점</button>
+		<button onclick="saveCoordinates('Option2')">중간 지점</button>
+		<button onclick="saveCoordinates('Option3')">도착 지점</button>
+		<button onclick="closeOptionPanel()">취소</button>
+	</div>
+	<div id="selectionBox">
+		<p>옵션을 선택하세요:</p>
+		<button onclick="handleOption('시작 지점')">시작 지점</button>
+		<button onclick="handleOption('중간 지점')">중간 지점</button>
+		<button onclick="handleOption('도착 지점')">도착 지점</button>
+		<button onclick="closeSelectionBox()">닫기</button>
+	</div>
+	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f52c7decb6d80bbe3f4394b08a556b87&libraries=services"></script>
+	<script>
+		let markers = [];
+		const mapContainer = document.getElementById('map');
+		const mapOption = {
+			center: new kakao.maps.LatLng(37.566826, 126.9786567),
+			level: 3
+		};
+		const map = new kakao.maps.Map(mapContainer, mapOption);
+		const ps = new kakao.maps.services.Places();
+		const infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
+
+		function setMapType(maptype) {
+			const roadmapControl = document.getElementById('btnRoadmap');
+			const skyviewControl = document.getElementById('btnSkyview');
+			if (maptype === 'roadmap') {
+				map.setMapTypeId(kakao.maps.MapTypeId.ROADMAP);
+				roadmapControl.className = 'selected_btn';
+				skyviewControl.className = 'btn';
+			} else {
+				map.setMapTypeId(kakao.maps.MapTypeId.HYBRID);
+				skyviewControl.className = 'selected_btn';
+				roadmapControl.className = 'btn';
+			}
+		}
+
+		function zoomIn() {
+			map.setLevel(map.getLevel() - 1);
+		}
+
+		function zoomOut() {
+			map.setLevel(map.getLevel() + 1);
+		}
+
+		function searchPlaces() {
+			const keyword = document.getElementById('keyword').value.trim();
+			if (!keyword) {
+				alert('키워드를 입력해주세요!');
+				return;
+			}
+			ps.keywordSearch(keyword, placesSearchCB);
+		}
+
+		function placesSearchCB(data, status, pagination) {
+			if (status === kakao.maps.services.Status.OK) {
+				displayPlaces(data);
+				displayPagination(pagination);
+			} else {
+				alert(status === kakao.maps.services.Status.ZERO_RESULT ? '검색 결과가 존재하지 않습니다.' : '검색 결과 중 오류가 발생했습니다.');
+			}
+		}
+
+		function displayPlaces(places) {
+			const listEl = document.getElementById('placesList');
+			const menuEl = document.getElementById('menu_wrap');
+			const fragment = document.createDocumentFragment();
+			const bounds = new kakao.maps.LatLngBounds();
+
+			removeAllChildNodes(listEl);
+			removeMarker();
+
+			places.forEach((place, index) => {
+				const el = document.createElement('li');
+				el.className = 'item';
+				el.innerHTML = `
+					<span class="markerbg" style="background-position: ${getMarkerPosition(index)}"></span>
+					<div class="info">
+						<h5>${place.place_name}</h5>
+						<span class="gray">${place.address_name}</span>
+						<span class="jibun">${place.road_address_name}</span>
+						<span class="tel">${place.phone}</span>
+					</div>
+				`;
+
+				el.onclick = () => {
+					new kakao.maps.event.MouseEvent('click', {
+						latLng: new kakao.maps.LatLng(place.y, place.x)
+					});
+					displayInfowindow(place);
+				};
+
+				fragment.appendChild(el);
+				bounds.extend(new kakao.maps.LatLng(place.y, place.x));
+
+				const marker = new kakao.maps.Marker({
+					map: map,
+					position: new kakao.maps.LatLng(place.y, place.x),
+					title: place.place_name
+				});
+				markers.push(marker);
+			});
+
+			listEl.appendChild(fragment);
+			map.setBounds(bounds);
+		}
+
+		function getMarkerPosition(index) {
+			return `0 ${-((index % 5) * 46)}px`;
+		}
+
+		function displayInfowindow(place) {
+			const content = `<div style="padding:5px;font-size:12px;">${place.place_name}</div>`;
+			infowindow.setContent(content);
+			infowindow.open(map, new kakao.maps.Marker({
+				map: map,
+				position: new kakao.maps.LatLng(place.y, place.x)
+			}));
+		}
+
+		function removeAllChildNodes(el) {
+			while (el.hasChildNodes()) {
+				el.removeChild(el.lastChild);
+			}
+		}
+
+		function removeMarker() {
+			markers.forEach(marker => marker.setMap(null));
+			markers = [];
+		}
+
+		function displayPagination(pagination) {
+			const paginationEl = document.getElementById('pagination');
+			const fragment = document.createDocumentFragment();
+
+			removeAllChildNodes(paginationEl);
+
+			for (let i = 1; i <= pagination.last; i++) {
+				const el = document.createElement('a');
+				el.href = '#';
+				el.innerHTML = i;
+				if (i === pagination.current) {
+					el.className = 'on';
+				} else {
+					el.onclick = () => {
+						pagination.gotoPage(i);
+					};
+				}
+				fragment.appendChild(el);
+			}
+
+			paginationEl.appendChild(fragment);
+		}
+
+		function saveCoordinates(option) {
+			alert(`저장된 좌표: ${option}`);
+			closeOptionPanel();
+		}
+
+		function closeOptionPanel() {
+			document.getElementById('optionPanel').style.display = 'none';
+		}
+
+		function openOptionPanel() {
+			document.getElementById('optionPanel').style.display = 'block';
+		}
+
+		function handleOption(option) {
+			alert(`선택된 옵션: ${option}`);
+			closeSelectionBox();
+		}
+
+		function closeSelectionBox() {
+			document.getElementById('selectionBox').style.display = 'none';
+		}
+
+		function openSelectionBox() {
+			document.getElementById('selectionBox').style.display = 'block';
+		}
+
+		// Open option panel for demonstration purposes
+		document.getElementById('map').addEventListener('click', openOptionPanel);
+
+	</script>
+</body>
+</html>

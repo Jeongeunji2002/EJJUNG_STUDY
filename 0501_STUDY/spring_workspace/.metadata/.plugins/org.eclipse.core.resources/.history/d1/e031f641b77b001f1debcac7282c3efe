@@ -1,0 +1,18 @@
+package org.myweb.first.board.model.dao;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository("boadrDao")
+public class BoardDao {
+	
+	@Autowired
+	private SqlSessionTemplate sqlSessionTemplate;
+
+	public ArrayList<Board> selectTop3() {
+		List<Board> list = sqlSessionTemplate.selectList("boardMapper.selectTop3");
+		return (ArrayList<Board>)list;
+	}
+
+}

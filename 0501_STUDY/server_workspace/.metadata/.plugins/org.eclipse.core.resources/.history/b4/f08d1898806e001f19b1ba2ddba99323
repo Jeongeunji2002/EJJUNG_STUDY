@@ -1,0 +1,10 @@
+package member.model.service;
+
+import static common.JDBCTemplate.*;
+import member.model.dto.User;
+
+public class MemberService {
+	public User selectLogin(User user) {
+		
+	}
+}

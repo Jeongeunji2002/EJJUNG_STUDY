@@ -1,0 +1,25 @@
+curl -v -X POST "https://apis-navi.kakaomobility.com/v1/waypoints/directions" \
+-H "Content-Type: application/json" \
+-H "Authorization: KakaoAK ${REST_API_KEY}" \ // 카카오디벨로퍼스에서 발급 받은 API 키 값
+-d '{
+	"origin": {
+		"x": "127.11024293202674",
+		"y": " 37.394348634049784"
+	},
+	"destination": {
+		"x": "127.10860518470294",
+		"y": "37.401999820065534"
+	},
+	"waypoints": [
+		{
+			"name": "name0",
+			"x": 127.11341936045922,
+			"y": 37.39639094915999
+		}
+	],
+	"priority": "RECOMMEND",
+	"car_fuel": "GASOLINE",
+	"car_hipass": false,
+	"alternatives": false,
+	"road_details": false
+}'

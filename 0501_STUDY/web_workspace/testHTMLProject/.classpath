@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="WEB-INF/classes"/>
+	<classpathentry excluding="classes/" kind="src" path="WEB-INF"/>
+	<classpathentry kind="src" path="webapp/resources/image"/>
+	<classpathentry kind="src" path="webapp/resources/multi"/>
+	<classpathentry kind="src" path="webapp/resources/js"/>
+	<classpathentry kind="src" path="webapp/resources/css"/>
+	<classpathentry excluding="image/|multi/|js/|css/" kind="src" path="webapp/resources"/>
+	<classpathentry excluding="resources/|resources/image/|resources/multi/|resources/js/|resources/css/" kind="src" path="webapp"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/html test server">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

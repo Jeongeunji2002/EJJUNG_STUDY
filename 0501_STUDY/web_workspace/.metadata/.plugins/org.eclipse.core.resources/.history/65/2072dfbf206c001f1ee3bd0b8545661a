@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>sample10</title>
+<script type="text/javascript">
+	/* window.onload = function() {
+		document.body.onmousedown = function(){
+			alert('body 에서 마우스 버튼 눌렀음.');
+		};
+		document.body.onmousemove=function(event){
+			console.log(event.x + ', '+ event.y)
+		};
+	}; */
+	
+	function execute(){
+		//first 와 second 의 결과를 합쳐서 result에 보여주기
+		var first = document.getElementById('first');
+		var second = document.getElementById('second');
+		
+		//정규표현식을 이용한 숫자검사와 유효성 체크
+		/* 
+		정규표현식 작성방법
+		1.var 변수명 = /정규표현식/;
+		2.var 변수명 = new  RegExp('정규표현식')
+		*/
+		
+		//텍스트필드에 기록된 값이 숫자인지 확인
+		var re = /^[0-10000]$/; //정규식과 일치하는지 검사하는 메소드 : 정규식객체.test(검사대상)	사용함
+		if(!re.test(first.value)){
+			//숫자가 아닌 값이 있는 경우	
+			alert('숫자만 입력하여야 합니다');
+			first.value=''; //first 에 기록된 값 지움
+			first.focus(); //first 에 입력 커서가 표시되게 함
+			return;
+		}
+		if(!re.test(second.value)){
+			//숫자가 아닌 값이 있는 경우	
+			alert('숫자만 입력하여야 합니다');
+			second.value=''; //first 에 기록된 값 지움
+			second.focus(); //first 에 입력 커서가 표시되게 함
+			return;
+		}
+		
+		var result = Number(first.value)+Number(second.value);
+		document.getElementById('result').innerHTML=result;
+	}
+</script>
+</head>
+<body>
+	<h1>입력값에 대한 유효성 검사(Validation)와 정규표현식(Regular Expression) 적용 테스트</h1>
+	<h3>전송값에 대한 유효성 검사란, 서버로 전송하기 전에 클라이언트 브라우저에서 이상이 없는 값인지 확인하고 나서
+		서버로 보내는 과정을 말한다.</h3>
+	<input type="button" value="결과확인" onclick="execute();">
+	<br>
+	<!-- <input type="text" id="first" onkeyup="alert('키보드의 키에서 손뗌.')"> -->
+	<input type="text" id="first">+<input type="text" id="second"> =<span id="result"></span>
+	<br>
+	<hr>
+
+
+
+</body>
+</html>

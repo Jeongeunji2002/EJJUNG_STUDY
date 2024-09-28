@@ -1,0 +1,88 @@
+[10:06:25][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:06:25][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 679 ms
+[10:06:25][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:06:26][INFO ][FrameworkServlet.java: 547] - Completed initialization in 659 ms
+[10:13:28][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:13:28][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 592 ms
+[10:13:28][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:13:29][INFO ][FrameworkServlet.java: 547] - Completed initialization in 649 ms
+[10:22:31][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:22:32][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 592 ms
+[10:22:32][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:22:33][INFO ][FrameworkServlet.java: 547] - Completed initialization in 620 ms
+[10:22:42][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /first/ndetail.do
+[10:35:46][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[10:35:46][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 603 ms
+[10:35:46][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[10:35:47][INFO ][FrameworkServlet.java: 547] - Completed initialization in 611 ms
+[10:41:04][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /first/bdetail.do
+[11:51:40][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[11:51:41][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 585 ms
+[11:51:41][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[11:51:41][INFO ][FrameworkServlet.java: 547] - Completed initialization in 626 ms
+[11:53:20][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[11:53:21][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 591 ms
+[11:53:21][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[11:53:22][INFO ][FrameworkServlet.java: 547] - Completed initialization in 601 ms
+[11:54:56][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[11:54:57][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 605 ms
+[11:54:57][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[11:54:57][INFO ][FrameworkServlet.java: 547] - Completed initialization in 632 ms
+[11:56:08][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /first/bdetail.do
+[11:57:50][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /first/bdetail.do
+[12:00:20][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /first/nlist.do
+[12:13:18][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[12:13:19][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 606 ms
+[12:13:19][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[12:13:20][INFO ][FrameworkServlet.java: 547] - Completed initialization in 668 ms
+[12:13:27][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[12:13:28][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 598 ms
+[12:13:28][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[12:13:29][INFO ][FrameworkServlet.java: 547] - Completed initialization in 667 ms
+[12:14:39][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[12:14:40][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 597 ms
+[12:14:40][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[12:14:40][INFO ][FrameworkServlet.java: 547] - Completed initialization in 627 ms
+[12:14:47][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[12:14:47][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 629 ms
+[12:14:47][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[12:14:48][INFO ][FrameworkServlet.java: 547] - Completed initialization in 718 ms
+[12:14:52][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[12:14:53][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 599 ms
+[12:14:53][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[12:14:54][INFO ][FrameworkServlet.java: 547] - Completed initialization in 635 ms
+[12:19:15][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[12:19:15][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 595 ms
+[12:19:15][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[12:19:16][INFO ][FrameworkServlet.java: 547] - Completed initialization in 632 ms
+[12:20:45][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[12:20:46][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 592 ms
+[12:20:46][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[12:20:46][INFO ][FrameworkServlet.java: 547] - Completed initialization in 618 ms
+[12:41:02][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[12:41:02][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 616 ms
+[12:41:02][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[12:41:03][INFO ][FrameworkServlet.java: 547] - Completed initialization in 644 ms
+[12:54:57][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[12:54:58][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 593 ms
+[12:54:58][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[12:54:58][INFO ][FrameworkServlet.java: 547] - Completed initialization in 618 ms
+[12:55:07][INFO ][MemberController.java: 72] - login : User [userId=admin, userPwd=admin, userName=null]
+[14:18:28][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:18:28][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 601 ms
+[14:18:28][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:18:29][INFO ][FrameworkServlet.java: 547] - Completed initialization in 633 ms
+[14:18:41][WARN ][DispatcherServlet.java: 1278] - No mapping for GET /first/bdetail.do
+[14:18:50][INFO ][MemberController.java: 72] - login : User [userId=admin, userPwd=admin, userName=null]
+[14:23:06][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:23:06][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 591 ms
+[14:23:06][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:23:07][INFO ][FrameworkServlet.java: 547] - Completed initialization in 649 ms
+[14:24:29][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:24:30][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 595 ms
+[14:24:30][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:24:30][INFO ][FrameworkServlet.java: 547] - Completed initialization in 658 ms
+[14:25:10][INFO ][ContextLoader.java: 271] - Root WebApplicationContext: initialization started
+[14:25:11][INFO ][ContextLoader.java: 307] - Root WebApplicationContext initialized in 597 ms
+[14:25:11][INFO ][FrameworkServlet.java: 525] - Initializing Servlet 'appServlet'
+[14:25:11][INFO ][FrameworkServlet.java: 547] - Completed initialization in 641 ms

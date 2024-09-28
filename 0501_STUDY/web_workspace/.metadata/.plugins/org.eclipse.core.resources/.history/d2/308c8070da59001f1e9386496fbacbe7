@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>hi</title>
+</head>
+<body>
+<h1>야호</h1>
+<hr>
+<nav>
+	<a href="views/test/hp.html">
+		<img src="/testh/resources/images/cyworld.jpg">
+</nav>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>pgs test</title>
+</head>
+<body>
+<h1 color=red>pgs test</h1>
+<hr align="center">
+<nav>
+	<a href="/testh/index.html">
+		<img src="/testh/resources/images/cyworld.jpg" width="1%" height="10%" border="2">
+		</a>
+</nav>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>pt test</title>
+</head>
+<body>
+<div style ="border :1px solid rgb(0, 64, 128); padding : 10px">test</div>
+<hr align="center">
+<nav>
+	<a href="/testh/index.html">
+		<img src="/testh/resources/images/cyworld.jpg" width="10%" height="10%">
+		</a>
+	<div style ="border :1px solid rgb(0, 64, 128); padding : 10px">testtesttesttest</div>
+</nav>
+</body>
+</html>

@@ -1,0 +1,16 @@
+package employee.view;
+
+import java.util.Scanner;
+
+import employee.controller.EmployeeController;
+
+public class EmployeeMenu {
+	// 의존성 주입 (DI : dependency Injection)
+	private EmployeeController econtroll = new EmployeeController();
+	private Scanner sc = new Scanner(System.in);
+
+	public void display() {
+		do {
+		} while (true);
+	}
+}

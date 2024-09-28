@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>지도 및 경로 검색</title>
+    <style>
+        .map_wrap, .map_wrap * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
+            font-size: 12px;
+        }
+
+        .map_wrap a, .map_wrap a:hover, .map_wrap a:active {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .map_wrap {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+        }
+
+        #menu_wrap {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 300px; /* Set a fixed width for the menu */
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            z-index: 1;
+        }
+
+        #menu_wrap hr {
+            display: block;
+            height: 1px;
+            border: 0;
+            border-top: 2px solid #5F5F5F;
+            margin: 10px 0;
+        }
+
+        #menu_wrap .option {
+            margin-bottom: 10px;
+        }
+
+        #menu_wrap .option form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #menu_wrap .option input {
+            width: calc(100% - 20px); /* Slightly reduced width */
+            padding: 6px;
+            margin-bottom: 10px;
+        }
+
+        #menu_wrap .option button {
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%; /* Full height within the viewport */
+        }
+
+        #info, #route_info {
+            margin-top: 10px;
+        }
+
+        #route_info {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="map_wrap">
+        <div id="map"></div>
+
+        <div id="menu_wrap" class="bg_white">
+            <div class="option">
+                <form onsubmit="searchRoute(); return false;">
+                    <input type="text" id="start" placeholder="출발지 입력">
+                    <input type="text" id="end" placeholder="도착지 입력">
+                    <button type="submit" id="submit">경로 검색</button>
+                </form>
+            </div>
+            <hr>
+            <div id="route_info">경로 정보가 여기에 표시됩니다.</div>
+            <div id="info"></div>
+            <button onclick="hideMarkers()">마커 감추기</button>
+            <button onclick="showMarkers()">마커 보이기</button>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c97889f438939687969d7a54a445021f"></script>
+    <script>
+        var markers = [];
+        var polyline = new kakao.maps.Polyline({
+            path: [],
+            strokeWeight: 5,
+            strokeColor: '#FF3D3D',
+            strokeOpacity: 0.7,
+            strokeStyle: 'solid'
+        });
+
+        var mapContainer = document.getElementById('map');
+        var mapOption = {
+            center: new kakao.maps.LatLng(37.566826, 126.9786567),
+            level: 3
+        };
+
+        var map = new kakao.maps.Map(mapContainer, mapOption);
+        var ps = new kakao.maps.services.Places();
+        var directions = new kakao.maps.services.Directions();
+
+        function searchRoute() {
+            var start = document.getElementById('start').value;
+            var end = document.getElementById('end').value;
+
+            if (!start || !end) {
+                alert('출발지와 도착지를 입력해 주세요.');
+                return;
+            }
+
+            ps.addressSearch(start, function(results, status) {
+                if (status === kakao.maps.services.Status.OK) {
+                    var startLatLng = new kakao.maps.LatLng(results[0].y, results[0].x);
+                    ps.addressSearch(end, function(results, status) {
+                        if (status === kakao.maps.services.Status.OK) {
+                            var endLatLng = new kakao.maps.LatLng(results[0].y, results[0].x);
+                            drawRoute(startLatLng, endLatLng);
+                        }
+                    });
+                }
+            });
+        }
+
+        function drawRoute(startLatLng, endLatLng) {
+            removeMarker();
+            polyline.setMap(null);
+
+            var startMarker = new kakao.maps.Marker({
+                position: startLatLng,
+                map: map,
+                title: '출발지'
+            });
+            var endMarker = new kakao.maps.Marker({
+                position: endLatLng,
+                map: map,
+                title: '도착지'
+            });
+
+            markers.push(startMarker, endMarker);
+
+            directions.route({
+                origin: startLatLng,
+                destination: endLatLng,
+                waypoints: [],
+                trafficInfo: false
+            }, function(result, status) {
+                if (status === kakao.maps.services.Status.OK) {
+                    var pathPoints = result.routes[0].path;
+                    polyline.setPath(pathPoints);
+                    polyline.setMap(map);
+                    map.setBounds(new kakao.maps.LatLngBounds(startLatLng, endLatLng));
+
+                    displayRouteInfo(result.routes[0]);
+                }
+            });
+        }
+
+        function removeMarker() {
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(null);
+            }
+            markers = [];
+        }
+
+        function setMarkers(map) {
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(map);
+            }            
+        }
+
+        function showMarkers() {
+            setMarkers(map);    
+        }
+
+        function hideMarkers() {
+            setMarkers(null);    
+        }
+
+        function getInfo() {
+            var center = map.getCenter();
+            var level = map.getLevel();
+            var mapTypeId = map.getMapTypeId();
+            var bounds = map.getBounds();
+            var swLatLng = bounds.getSouthWest();
+            var neLatLng = bounds.getNorthEast();
+
+            var message = `<p>지도 중심: ${center.getLat()}, ${center.getLng()}</p>
+                           <p>지도 레벨: ${level}</p>
+                           <p>지도 타입: ${mapTypeId}</p>
+                           <p>남서쪽 좌표: ${swLatLng.getLat()}, ${swLatLng.getLng()}</p>
+                           <p>북동쪽 좌표: ${neLatLng.getLat()}, ${neLatLng.getLng()}</p>`;
+            document.getElementById('info').innerHTML = message;
+        }
+
+        function displayRouteInfo(route) {
+            var dummyData = [
+                {start: '서울특별시청', end: '경복궁', distance: '2.5 km', duration: '10 min'},
+                {start: '서울역', end: '명동', distance: '1.8 km', duration: '8 min'},
+                {start: '강남역', end: '강남구청역', distance: '3.2 km', duration: '15 min'}
+            ];
+
+            var infoHtml = '<h4>경로 정보</h4>';
+            dummyData.forEach(function(data, index) {
+                infoHtml += `
+                    <div>
+                        <h5>경로 ${index + 1}</h5>
+                        <p><strong>출발지:</strong> ${data.start}</p>
+                        <p><strong>도착지:</strong> ${data.end}</p>
+                        <p><strong>총 거리:</strong> ${data.distance}</p>
+                        <p><strong>총 소요 시간:</strong> ${data.duration}</p>
+                    </div>
+                    <hr>
+                `;
+            });
+
+            document.getElementById('route_info').innerHTML = infoHtml;
+        }
+
+        kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+            addMarker(mouseEvent.latLng);
+        });
+
+        function addMarker(position) {
+            var marker = new kakao.maps.Marker({
+                position: position
+            });
+            marker.setMap(map);
+            markers.push(marker);
+        }
+    </script>
+</body>
+</html>

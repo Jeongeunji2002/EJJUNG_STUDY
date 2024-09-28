@@ -1,0 +1,8 @@
+package org.myweb.first.board.model.dao;
+
+import org.springframework.stereotype.Repository;
+
+@Repository("boadrDao")
+public class BoardDao {
+
+}

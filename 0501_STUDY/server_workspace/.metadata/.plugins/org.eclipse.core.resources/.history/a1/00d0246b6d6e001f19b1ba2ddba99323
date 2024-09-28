@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FirstServerProject : Project</title>
+<style type="text/css">
+div
+</style>
+</head>
+<body>
+	<h1>FirstServerProject : Project</h1>
+	<hr>
+	<header>
+	<div id="banner" class="lineA">
+	<img src="/first/resroces/images/photo2.jpg">
+	</div>
+	</header>
+</body>
+</html>

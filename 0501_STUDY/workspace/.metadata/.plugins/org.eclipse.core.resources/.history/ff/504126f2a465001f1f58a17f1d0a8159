@@ -1,0 +1,6 @@
+package employee.model.dao;
+
+//공통모듈 : 모든 서비스들이 공통으로 이용한느 코드를 가진 클래스
+public class JDBCTempleate {
+
+}

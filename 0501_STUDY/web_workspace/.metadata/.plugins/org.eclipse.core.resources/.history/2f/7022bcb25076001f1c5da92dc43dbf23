@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>다음 지도 API</title>
+<style>
+.map_wrap, .map_wrap * {
+	margin: 0;
+	padding: 0;
+	font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
+	font-size: 12px;
+}
+
+.map_wrap a, .map_wrap a:hover, .map_wrap a:active {
+	color: #000;
+	text-decoration: none;
+}
+
+.map_wrap {
+	position: relative;
+	width: 100%;
+	height: 100vh; /* Full viewport height */
+}
+
+#menu_wrap {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 300px; /* Set a fixed width for the menu */
+	padding: 10px;
+	background: rgba(255, 255, 255, 0.7);
+	border-radius: 10px;
+	z-index: 1;
+}
+
+#menu_wrap hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 2px solid #5F5F5F;
+	margin: 10px 0;
+}
+
+#menu_wrap .option {
+	margin-bottom: 10px;
+}
+
+#menu_wrap .option form {
+	display: flex;
+	flex-direction: column;
+}
+
+#menu_wrap .option input {
+	width: calc(100% - 20px); /* Slightly reduced width */
+	padding: 6px;
+	margin-bottom: 10px;
+}
+
+#menu_wrap .option button {
+	padding: 8px;
+	cursor: pointer;
+}
+
+#map {
+	width: 100%;
+	height: 100%; /* Full height within the viewport */
+}
+
+#info, #route_info {
+	margin-top: 10px;
+}
+
+#route_info {
+	border: 1px solid #ddd;
+	padding: 10px;
+	border-radius: 5px;
+	background: #f9f9f9;
+}
+</style>
+</head>
+<body>
+	<div id="map" style="width: 100%; height: 100vb;"></div>
+
+	<script
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c97889f438939687969d7a54a445021f"></script>
+	<script>
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		mapOption = {
+			center : new kakao.maps.LatLng(37.60630, 127.02405), // 지도의 중심좌표
+			level : 8, // 지도의 확대 레벨
+			mapTypeId : kakao.maps.MapTypeId.ROADMAP
+		// 지도종류
+		};
+
+		// 지도를 생성한다 
+		var map = new kakao.maps.Map(mapContainer, mapOption);
+
+		// 지도를 클릭했을때 클릭한 위치에 마커를 추가하도록 지도에 클릭이벤트를 등록합니다
+		kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
+		    // 클릭한 위치에 마커를 표시합니다 
+		    addMarker(mouseEvent.latLng);             
+		});
+
+		// 지도에 표시된 마커 객체를 가지고 있을 배열입니다
+		var markers = [];
+
+		// 마커를 생성하고 지도위에 표시하는 함수입니다
+		function addMarker(position) {
+		    
+		    // 마커를 생성합니다
+		    var marker = new kakao.maps.Marker({
+		        position: position,
+		        draggable : true
+		    });
+
+		    // 마커가 지도 위에 표시되도록 설정합니다
+		    marker.setMap(map);
+		    
+		    // 생성된 마커를 배열에 추가합니다
+		    markers.push(marker);
+		}
+
+		// 배열에 추가된 마커들을 지도에 표시하거나 삭제하는 함수입니다
+		function setMarkers(map) {
+		    for (var i = 0; i < markers.length; i++) {
+		        markers[i].setMap(map);
+		    }            
+		}
+
+		// 마커에 클릭 이벤트를 등록한다 (우클릭 : rightclick)
+		kakao.maps.event.addListener(marker, 'click', function() {
+			alert('마커를 클릭했습니다!');
+		});
+	</script>
+</body>
+</html>
